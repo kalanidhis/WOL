@@ -1,0 +1,312 @@
+<div class="pagecontentbar" style="">
+
+	<div class="pagenation">
+		<ol class="breadcrumb page-breadcrumb">
+			<li routerLink="/home"><a><i class="fa fa-home fa-lg"
+					aria-hidden="true"></i> &nbsp; Home</a></li>
+			<li routerLink="/home"><a href="">DashBoard</a></li>
+		</ol>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="mainBar col-sm-8">
+				<div class="mainBarItem whiteBackGround row panel panel-group">
+					<div class="panel-heading">
+						<h3>Account Details</h3>
+					</div>
+					<div class="panel-body">
+						<div class="custinfo table-responsive">
+							<table class="table table-striped">
+								<tr>
+									<td><b>Bill Amount:</b></td>
+									<td>$55.46</td>
+								</tr>
+								<tr>
+									<td><b>Due Date:</b></td>
+									<td>Jan 15 2017</td>
+								</tr>
+								<tr>
+									<td><b>Auto Pay:</b></td>
+									<td>OFF</td>
+								</tr>
+							</table>
+						</div>
+						<div class="widget-detail-1" *ngFor="let b of invoiceDueData">
+				        <span *ngIf="b.paidAmount < 1">
+				          <a>
+				          <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg" routerLink="/payment" routerLinkActive="active1">Pay My Bill >></button>
+				          </a>
+				        </span>
+				         <span *ngIf="b.paidAmount > 1">
+				          Paid Amount : ${{b.paidAmount}} <br/>
+				          Paid Date : {{b.paidDate}}
+				        </span>
+				        <span style=" float: right;">  <a href="/billing"><button class="btn btn-success">View Bill >></button></a></span>
+				      </div>
+					</div>
+				</div>
+
+				<div class="mainBarItem whiteBackGround row panel panel-group"
+					style="margin-top: 20px">
+					<div class="panel-heading">
+						<h3>Past Invoices</h3>
+					</div>
+					<div class="panel-body">
+						<div class="custinfo table-responsive">
+							<table class="table table-striped">
+                                <tr>
+                                    <th><b>Date</b></th>
+                                    <th><b>Amount</b></th>
+                                    <th><b>Link</b></th>
+                                </tr>
+								<tr>
+									<td>Dec 2016</td>
+									<td>$55.46</td>
+                                    <td>View Bill</td>
+								</tr>
+								<tr>
+                                    <td>Nov 2016</td>
+                                    <td>$32.46</td>
+                                    <td>View Bill</td>
+                                </tr>
+							</table>
+						</div>
+                        <div class="widget-detail-1" style="text-align: center;">
+                                                <a routerLink="/viewinvoice"><button class="btn btn-success" style="margin-top: 10px;">View All Invoices</button></a>
+                                            </div>
+
+					</div>
+				</div>
+
+				<div class="mainBarItem whiteBackGround row panel panel-group">
+					<div id="carousel1" class="carousel slide myCarousel"
+						data-ride="carousel" data-interval="false">
+
+						<div class="carousel-inner" role="listbox">
+							<div class="item active">
+								<div class="panel panel-group myCarouselPanel">
+									<div class="panel-heading">
+										<h4>DISH &amp; Internet Bundle</h4>
+									</div>
+									<div class="panel-body" style="text-align: center;">
+										<img
+											src="https://www.windstream.com/uploadedImages/Content/Horizontal_Callout/TVblank.png"
+											alt="TV Icon" border="0" width="120px" height="100px"
+											style="float: none;">&nbsp;<img
+											src="https://www.windstream.com/uploadedImages/Content/Horizontal_Callout/laptopBlank.png"
+											alt="Laptop Icon" border="0" width="120px" height="100px"
+											style="float: none;">
+
+									</div>
+									<div>
+										<ul style="list-style-type: none; padding: 0px; margin: 0px;">
+											<li style="text-align: center;"><strong>You
+													Get:</strong></li>
+											<li style="text-align: center;">High-Speed Internet,
+												Unlimited Phone, and DISH TV all at one low price</li>
+											<li></li>
+										</ul>
+									</div>
+									<div class="widget-detail-1" style="text-align: center;">
+										<button class="btn btn-success">Check Availability</button>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="panel panel-group myCarouselPanel">
+									<div class="panel-heading">
+										<h4>Voice and Internet Bundle</h4>
+									</div>
+									<div class="panel-body">
+
+										<div class="prod-detail-features pure-u-1 pure-u-md-1-3">
+
+											<ul class="prod-features">
+
+												<li class="prod-feature">Speeds of up to 100 Mbps. No
+													speed-tiered pricing.</li>
+
+												<li class="prod-feature">1-line, 2-line or 5-line voice
+													options</li>
+
+												<li class="prod-feature">Risk free. No written contract
+													required.</li>
+
+												<li class="prod-feature">Free modem lease</li>
+
+												<li class="prod-feature">Free Internet Security by
+													McAfee</li>
+
+												<li class="prod-feature">Free Professional Installation
+													by local business technicians</li>
+
+											</ul>
+
+											<div class="widget-detail-1" style="text-align: center;">
+												<button class="btn btn-success" style="margin-top: 10px;">Get
+													a Quote</button>
+											</div>
+
+
+
+
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="panel panel-group myCarouselPanel">
+									<div class="panel-heading">
+										<h4>Online Only Offer!</h4>
+									</div>
+									<div class="panel-body" style="text-align: center;">
+										<img
+											src="http://mmmarketingaz.com/wp-content/uploads/2016/03/webdesignicon-small2.gif"
+											alt="Internet Plan" border="0" style="float: none;">
+										<h4>Receive a $100 credit in cart when you purchase an
+											internet plan</h4>
+									</div>
+									<div class="widget-detail-1" style="text-align: center;">
+										<button class="btn btn-success" style="margin-top: -30px;">Shop
+											Plans</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--Controls-->
+					
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="col-sm-3 sidebar col-sm-offset-1">
+
+				<div class="sidebarItem whiteBackGround row panel panel-success">
+				 	<div class="panel-body">
+						<h4>Notifications</h4>
+						<ul class="list-group">
+						  <li class="list-group-item">
+						    Your Bill is Past Due. Pay Now
+						  </li>
+						  <li class="list-group-item">
+						    Its an year since you last changed your password.Change Now
+						  </li>
+						</ul>
+					</div>
+					<div>
+					<br/><br/>
+					</div>
+				 
+				</div>
+
+							<div class="sidebarItem whiteBackGround row panel panel-success">
+
+					<div class="panel-body">
+						<h4>Open Tickets</h4>
+						<div class="custinfo table-responsive">
+                            <table class="table table-striped"   [mfData]="data | dataFilter : filterQuery" #mf="mfDataTable"
+                   [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+                               <thead>
+                                <tr>
+                                    <th><b>Category</b></th>
+                                    <th><b>Status</b></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                            <tr *ngFor="let item of mf.data" >
+                               
+                                <td>{{item.name}}</td>
+                                <td>OPEN</td>
+                            </tr>
+                            </tbody>
+                            </table>
+                        </div>
+                        <div class="widget-detail-1" style="text-align: center;">
+                                        <a href="/viewticket"><button class="btn btn-success">View All Tickets</button></a>
+                                    </div>
+					</div>
+                       <div>
+                    &nbsp; &nbsp; &nbsp;
+                    </div>
+				</div>
+				
+				<div class="sidebarItem whiteBackGround row panel panel-success">
+				
+				  	<div class="panel-body" style="padding-left: 13px;">
+						<h4>SUPPORT</h4>
+					</div>
+					<p style="min-height: 70px; padding-left: 13px;">
+						Choose from the following options or visit our <a href="/"
+							title="Support">Support Page</a> if you’re in need of extra
+						assistance.
+					</p>
+					<div
+						style="color: rgb(119, 184, 0); padding-bottom: 10px; padding-left: 13px;">
+						<img
+							src="http://smallbusiness.windstream.com/uploadedImages/SMB_Site/Content/Horizontal_Callout/phoneIcon.png"
+							alt="Phone Icon" title="Phone Icon"
+							style="float: none; vertical-align: top;"><span
+							style="vertical-align: top;">&nbsp;&nbsp;&nbsp;<strong>(866)
+								260-1615</strong></span>
+					</div>
+					<div
+						style="color: rgb(119, 184, 0); padding-bottom: 10px; padding-left: 13px;">
+						<img
+							src="http://smallbusiness.windstream.com/uploadedImages/SMB_Site/Content/Horizontal_Callout/emailIcon.png"
+							alt="Email Icon" title="Email Icon"
+							style="float: none; vertical-align: top;"><span
+							style="vertical-align: top;">&nbsp;&nbsp;<strong>Email
+								Us</strong></span>
+					</div>
+					<div
+						style="color: rgb(119, 184, 0); padding-bottom: 10px; padding-left: 13px;">
+						<img
+							src="http://smallbusiness.windstream.com/uploadedImages/SMB_Site/Content/Horizontal_Callout/liveChatIcon.png"
+							alt="Live Chat Icon" title="Live Chat Icon"
+							style="float: none; vertical-align: top;"><span
+							style="vertical-align: top;">&nbsp;&nbsp;<strong>Live
+								Chat</strong></span>
+					</div>
+                    <div>
+					<br/><br/><br/>
+					</div>
+				 
+				</div>
+
+				      <div class="row">
+        <div class="col-lg-12">
+          <div class="panel panel-success">
+            <div class="panel-heading greenBackGround">
+              <h4>Blog
+                <span class="pull-right" style="display: inline-block;">
+              <i class="fa fa-rss animated" style="color: #5cb85c"></i>
+            </span>
+              </h4>
+            </div>
+            <div class="panel-body">
+              <p style="padding-left: 13px;">
+                Subscribe to our <a href="http://blog.windstream.com/">blog</a>
+              </p>
+              <div class="row col-lg-11" style="margin: auto">
+                <input type="text" class="form-control" placeholder="What's your email ?"/>
+              </div>
+              <div class="row col-lg-11" style="margin: auto;  padding-top:10px; text-align: center">
+                <button type="button" class="btn btn-success greenBackGround">
+                  Subscribe
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+			</div>
+		</div>
+
+
+	</div>
+</div>
+
+

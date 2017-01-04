@@ -1,0 +1,26 @@
+.progress {
+  height: 5px;
+  margin:0px;
+}
+.progress .skill {
+  font: normal 12px "Open Sans Web";
+  line-height: 35px;
+  padding: 0;
+
+  text-transform: uppercase;
+}
+.progress .skill .val {
+  float: right;
+  font-style: normal;
+  margin: 0 20px 0 0;
+}
+
+.progress-bar {
+  text-align: left;
+  transition-duration: 3s;
+}.boxshadow{
+    -webkit-box-shadow: 3px 3px 6px 1px rgba(179,178,170,1);
+    -moz-box-shadow: 3px 3px 6px 1px rgba(179,178,170,1);
+    box-shadow: 3px 3px 6px 1px rgba(179,178,170,1);
+}
+

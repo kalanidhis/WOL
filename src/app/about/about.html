@@ -1,0 +1,8 @@
+<div  [@myAnimation]="show" *ngIf="!top" class="container-fluid" style="padding: 0px !important">
+  <side-bar></side-bar>
+  <about-left></about-left>
+</div>
+<div  [@myAnimation]="show" *ngIf="top">
+<side-bar-top></side-bar-top>
+<about-top></about-top>
+</div>

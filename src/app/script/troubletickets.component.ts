@@ -16,10 +16,10 @@ import { CanActivate, Router } from '@angular/router';
 export class TroubleticketsComponent {
   userForm: any;
   private troubleticketsService: TroubleticketsService;
-  
+
   constructor(private formBuilder: FormBuilder,protected http: Http,private router: Router) {
-    
-      
+
+
     this.userForm = this.formBuilder.group({
       'name': ['', Validators.required],
       'email': ['', [Validators.required, ValidationService.emailValidator]],
@@ -44,7 +44,7 @@ submitForm(myForm) {
 
 
   addTickets(formData){
-    this.http.post('http://192.168.26.60:8080/tickets/create',formData)
+    this.http.post('http://localhost:8080/tickets/create',formData)
         .map(res => res.json())
         .subscribe(
           (data) => {
@@ -69,13 +69,13 @@ submitForm(myForm) {
       console.log(errors);
       for (var field in errors) {
         var fieldErrors: string[] = (<any>errors)[field];
-        
+
       }
     }
 
     console.log(response);
   }
-  
+
   saveUser() {
 
     console.log(this.userForm);
@@ -88,13 +88,13 @@ submitForm(myForm) {
 
   alert(this.userForm.value);
 
- 
+
   alert(this.userForm);
 
    var result,
         userValue = this.userForm.value;
 
     alert(userValue);
- 
+
   }
 }

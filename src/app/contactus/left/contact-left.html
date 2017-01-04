@@ -1,0 +1,72 @@
+         <div class="progress skill-bar ">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                </div>
+            </div>
+ <div   class="pagenation  col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2" style="padding: 0; background-color: #F2F2F2">
+    <ol class="breadcrumb page-breadcrumb" style="margin:0px">
+      <li routerLink="/home"><a><i class="fa fa-home fa-lg" aria-hidden="true"></i> &nbsp; Home</a></li>
+      <li><a>Contact Us</a></li>
+    </ol>
+  </div>
+ <div  [@myAnimation]="show" class="col-sm-7 col-sm-offset-4 col-lg-8 col-lg-offset-3" style="padding: 20px;">
+ <div class="panel  boxshadow">
+  <div class="panel-heading" [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}"><b>Contact US </b><i class="fa fa-comments-o" aria-hidden="true"></i></div>
+  <div class="panel-body">
+  <p class="lead"><i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+Call Customer Service at 1-800-347-1991.</p>
+<hr class="my-2">
+<div class="col-lg-6">
+  <div class="panel ">
+<div class="panel-heading" [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}"><b>Live Chat</b></div>
+  <div class="panel-body">
+<p>Executive Leadership Team</p>
+
+<p>Click the button below to begin chatting with a live representative.</p>
+<p class="lead">
+<a class="btn btn-lg"  [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo}"href="#" role="button">CHAT NOW <i class="fa fa-weixin faa-shake animated" aria-hidden="true"></i>
+</a>
+</p>
+  </div>
+</div>
+</div>
+
+
+<div class="col-lg-6">
+  <div class="panel">
+<div class="panel-heading" [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}"><b>Company Overview</b></div>
+  <div class="panel-body">
+<div style="">
+<p>Windstream (NASDAQ: WIN), a FORTUNE 500 company, is a leading provider of advanced network communications and technology solutions for consumers, small businesses, enterprise organizations and carrier partners across the U.S. Windstream offers bundled services, including broadband, security solutions, voice and digital TV to consumers. The company also provides data, cloud solutions, unified communications and managed services to business and enterprise clients. The company supplies core transport solutions on a local and long-haul fiber-optic network spanning approximately 125,000 miles</p>
+</div>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+
+
+<div class="panel  boxshadow">
+   <div class="panel-heading" [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}">Email Windstream using the form below. We will respond to you as soon as possible</div>
+  <div class="panel-body">
+    <form>
+    <div class="form-group" >
+    <label for="exampleInputEmail1">First Name</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="First Name">
+  </div>
+    <div class="form-group">
+    <label for="exampleInputEmail1">Last Name</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Last Name">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+  </div>
+     <div class="form-group">
+    <label for="exampleInputEmail1">Contact Number </label>
+    <input type="tel" class="form-control" id="exampleInputEmail1" placeholder="Contact Number">
+  </div>
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>
+  </div>
+</div>
+</div>

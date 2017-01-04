@@ -1,0 +1,167 @@
+         <div class="progress skill-bar ">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                </div>
+            </div>
+<div class="pagenation  col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2" style="padding: 0; background-color: #F2F2F2">
+  <ol class="breadcrumb page-breadcrumb" style="margin:0px">
+    <li routerLink="/home"><a><i class="fa fa-home fa-lg" aria-hidden="true"></i> &nbsp; Home</a></li>
+    <li><a>Payment</a></li>
+  </ol>
+</div>
+<div   [@myAnimation]="show" class="pagecontentbar col-sm-9 col-sm-offset-3 col-lg-6 col-lg-offset-4" style="padding-top: 20px;">
+      <div class="panel boxshadow" style="margin:0px">
+        <div class="panel-heading " [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}"><b>Payment Method</b></div>
+        <div class="">
+        <div class="">
+        <section>
+        <div class="wizard">
+        <div class="wizard-inner">
+        <div class="connecting-line"></div>
+        <ul class="nav nav-tabs" role="tablist">
+
+        <li role="presentation" [ngClass]="{'active': !isquickpay }" id="step1">
+        <a >
+        <span class="round-tab">
+        <i class="fa fa-credit-card" aria-hidden="true"></i>
+        </span>
+        </a>
+        </li>
+
+        <li role="presentation"  [ngClass]="{'active': isquickpay2}"  id="step2"> 
+        <a>
+        <span class="round-tab">
+        <i class="fa fa-tty" aria-hidden="true"></i>
+        </span>
+        </a>
+        </li>
+        <li role="presentation" class="disabled" id="step3"  [ngClass]="{'active': isquickpay3 }">
+        <a>
+        <span class="round-tab">
+        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+
+        </span>
+        </a>
+        </li>
+
+        </ul>
+        </div>
+        </div>
+        </section>
+        </div>
+        </div>
+      </div>
+      <div class="col-lg-12" [ngClass]="{'hide': isquickpay }" style="padding: 0px">
+        <div class="panel boxshadow" style="border-radius: 0px !important ;">
+        <div class="panel-heading " [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}"><b>Payment Details</b></div>
+        <div class="panel-body">
+
+        <form accept-charset="UTF-8" action="/" class="require-validation" data-cc-on-file="false" data-stripe-publishable-key="pk_bQQaTxnaZlzv4FnnuZ28LFHccVSaj" id="payment-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓" /><input name="_method" type="hidden" value="PUT" /><input name="authenticity_token" type="hidden" value="qLZ9cScer7ZxqulsUWazw4x3cSEzv899SP/7ThPCOV8=" /></div>
+        <div class='form-row'>
+        <div class='col-sm-8 col-sm-offset-2 col-xs-12 form-group required'>
+        <label class='control-label'>Name on Card</label>
+        <input class='form-control' size='4' type='text' value="Marcus Doe">
+        </div>
+        </div>
+        <div class='form-row'>
+        <div class=' col-sm-8 col-sm-offset-2 col-xs-12 form-group card required'>
+        <label class='control-label'>Card Number</label>
+        <input autocomplete='off' required class='form-control card-number' size='20' type='text' value="5105105105105102">
+        </div>
+        </div>
+        <div class='form-row'>
+        <div class='col-xs-4 col-sm-2 col-sm-offset-2 form-group cvc required'>
+        <label class='control-label'>CVV</label>
+        <input autocomplete='off' class='form-control card-cvc' placeholder='CVV' size='4' type='text' >
+        </div>
+        <div class='col-xs-4 col-sm-3 form-group expiration required'>
+        <label class='control-label'>Expiration</label>
+        <input class='form-control card-expiry-month' size='2' type='text' value="01">
+        </div>
+        <div class='col-xs-4 col-sm-3 form-group expiration required'>
+        <label class='control-label'> </label>
+        <input class='form-control card-expiry-year' size='4' type='text' value="2021">
+        </div>
+        </div>
+        <div class='form-row'>
+        <div class='col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2 col-md-12  form-group' style="padding: 0px">
+        <button id="payStep1" (click)="isquickpay = !isquickpay;isquickpay2 = !isquickpay2;getPaymentDetails();" class='form-control btn  submit-button' [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo}" type='submit'>Next »</button>
+        </div>
+        </div>
+        <div class='form-row'>
+        <div class='col-md-12 col-sm-3  error form-group hide'>
+        <div class='alert-danger alert'>
+        Please correct the errors and try again.
+        </div>
+        </div>
+        </div>
+        </form>
+        </div>
+        </div> 
+      </div>
+      <div class="col-lg-12" [ngClass]="{'hide': !isquickpay2 }" style="padding:0px">
+        <div class="panel">
+        <!-- Default panel contents -->
+        <div class="panel-heading" [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}">Billing Details</div>
+        <div class="panel-body">
+        <div class="table-responsive">
+        <table class="table">
+        <tr><td>Phone Number</td><td>+(804)-325-5379 </td></tr>
+        <tr><td>Date</td><td>December 09,2016</td></tr>
+        <tr><td>Customer Number</td><td>#7867849465</td></tr>
+        <tr><td>Invoice Number</td><td>#7455854554786</td></tr>
+        <tr><td>Account Number</td><td>#262439346357</td></tr>
+        </table>
+        <hr>
+        <p>Do you have questions about your invoice?</p>
+        <div
+        style="color: rgb(119, 184, 0); padding-bottom: 10px; padding-left: 13px;">
+        <img
+        src="http://smallbusiness.windstream.com/uploadedImages/SMB_Site/Content/Horizontal_Callout/phoneIcon.png"
+        alt="Phone Icon" title="Phone Icon"
+        style="float: none; vertical-align: top;"><span
+        style="vertical-align: top;">&nbsp;&nbsp;&nbsp;<strong>please call our toll-free customer service(866)
+        260-1615</strong></span>
+        </div>
+
+
+        <table>
+        <tr><td>Bill Date :</td><td>+(804)-325-5379 </td></tr>
+        <tr><td>Previous Amount : </td><td><span *ngFor="let b of invoiceData">${{b.previousAmount}}</span></td></tr>
+        <tr><td>Payment & Adjustment : </td><td><span *ngFor="let b of invoiceData">-${{b.adjustment}}</span></td></tr>
+        <tr><td>Past Due : </td><td><span *ngFor="let b of invoiceData">${{b.pastDue}}</span></td></tr>
+        <tr><td>Current Charge : </td><td><span *ngFor="let b of invoiceData">${{b.currentCharge}}</span></td></tr>
+        <tr><td>Total Amount : </td><td><span *ngFor="let b of invoiceData">${{b.amount}}</span></td></tr>
+        </table>
+        <hr>
+        <form name="form" #f="ngForm" novalidate>
+        <table>
+        <tr><td>Pay amount :</td>&nbsp;&nbsp;<td *ngFor="let b of invoiceData">  
+
+        <input type="hidden" name="id" id="id" ng-model="model.id" value="11" init-model="model.id=11" />
+
+        <input type="text" class="form-control" name="payamount"  [(ngModel)]="model.payamount" #payamount="ngModel" value="{{b.amount}}"  placeholder="{{b.amount}}.00" />
+        </td></tr>
+        </table>   
+
+
+        <div class='form-row'>
+        <div class='col-md-12 form-group'>
+        <button id="payStep2" (click)="isquickpay3 = !isquickpay3;isquickpay2 = !isquickpay2;paybill()" class='form-control btn submit-button' [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo}" type='submit'>Pay »</button>
+        </div>
+        </div>
+        </form>
+        </div>
+        </div>
+        </div>
+      </div>
+      <div class="col-lg-12"  [ngClass]="{'hide': !isquickpay3 }" style="padding:0px">
+
+        <div class="panel">
+        <!-- Default panel contents -->
+          <div class="panel-heading"><i class="fa fa-check fa-3x" aria-hidden="true"></i>Transaction successful
+           <span><a href=""> Back to Home</a></span>
+          </div>
+
+        </div>
+      </div>
+</div>

@@ -1,0 +1,84 @@
+<nav  class="navbar navbar-default" [ngClass]="{ menublue:isBlue, menunavy: isNavy, menuwhite:isWhite, menugreen: isGreen, menuindigo: isIndigo}">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle hidden-sm collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <img class="navbar-brand"  src="../img/windstream-logo.png" style="height: 50px;padding: 5px;">
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+       <li routerLink="/home"  routerLinkActive="active1"><a><i class="fa fa-home fa-lg" aria-hidden="true"></i> &nbsp;<span class=" hidden-sm">Home</span></a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li routerLink="/payment" routerLinkActive="active1"><a>Make Payment</a></li>
+             <li role="separator" class="divider"></li>
+            <li  routerLink="/billing" routerLinkActive="active1"
+             (click)="gotoHeroes()"><a>Biling</a></li>
+             <li role="separator" class="divider"></li>
+            <li routerLink="/createtroubleticket" routerLinkActive="active1"><a >Create Trouble Ticket</a></li>
+            <li role="separator" class="divider"></li>
+            <li routerLink="/viewticket" routerLinkActive="active1"><a>View Tickets</a></li>
+            <li role="separator" class="divider"></li>
+            <li routerLink="/viewinvoice" routerLinkActive="active1"><a>View Invoice Details</a></li>
+
+             <!-- <li role="separator" class="divider"></li> 
+             <li routerLink="/paymenthistory" routerLinkActive="active1"><a>Payment History</a></li> -->
+             
+          </ul>
+        </li>
+        <li routerLink="/profile" routerLinkActive="active1"><a><i class="fa fa-id-card-o" aria-hidden="true"></i> &nbsp;My Profile</a></li>
+        <li routerLink="/contact" routerLinkActive="active1"><a ><i class="fa fa-phone-square" aria-hidden="true"></i> &nbsp; Contact us</a></li>
+
+         <li routerLink="/sampledata" routerLinkActive="active1"><a ><i class="fa fa-phone-square" aria-hidden="true"></i> &nbsp; Sample Data</a></li>
+       
+   <li class="visible-md visible-lg" style="border:2px solid white;border-radius:15px;padding:8px">   <span class="userdetail " style="margin: 0px !important;">
+    <a style="color: #ffffff">
+    <img class="img-circle" alt="" src="../img/profile.jpg">
+    <span>Welcome,</span><span class="username username-hide-on-mobile"> Tony Thomas</span>
+    </a>
+    </span></li>
+         <li><a href="#"><i class="fa fa-sign-out hidden-xs" aria-hidden="true"></i><span class="visible-xs">LogOut</span></a></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="Switch Menu" class="dropdown" (click)="clicked()">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gear fa-lg faa-spin animated"></i></a>
+   
+        </li>
+     <!-- ----------------------Change Theme---------------------------------------------- -->
+              <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-superpowers fa-lg"></i>&nbsp;Theme <i class="fa fa-circle"  [ngClass]="{ fablue:isBlue, fanavy: isNavy, fawhite:isWhite, fagreen: isGreen, faindigo: isIndigo}" ></i><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+                    <li (click)='settheme("green")'><a><i class="fa fa-circle navy-blue" style="color: green"></i> &nbsp; Green</a></li>
+                    <li (click)='settheme("indigo")'><a> <i class="fa fa-circle navy-blue" style="color: indigo"></i> &nbsp;Indigo</a></li>
+                    <li (click)='settheme("blue")'><a> <i class="fa fa-circle navy-blue" style="color: blue"></i> &nbsp;Blue</a></li>
+                    <li (click)='settheme("navy")'><a> <i class="fa fa-circle navy-blue" style="color: navy-blue"></i> &nbsp;Navy</a></li>
+                    <li (click)='settheme("white")'><a> <i class="fa fa-circle navy-blue" style="color: white"></i> &nbsp;White</a></li>
+
+             <!-- <li role="separator" class="divider"></li> 
+             <li routerLink="/paymenthistory" routerLinkActive="active1"><a>Payment History</a></li> -->
+             
+          </ul>
+          </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+ <div class="Navigation_Menu hidden-lg hidden-md"  [ngClass]="{ menublue:isBlue, menunavy: isNavy, menuwhite:isWhite, menugreen: isGreen, menuindigo: isIndigo}" style="color: white">
+  <div class="" style="padding-left: 5px;">
+
+    <span class="userdetail hidden-lg hidden-md">
+    <a style="color: #ffffff">
+    <img class="img-circle" alt="" src="../img/profile.jpg">
+    <span>Welcome,</span><span class="username username-hide-on-mobile"> Tony Thomas</span>
+    </a>
+    </span>
+
+  </div>
+
+  </div>

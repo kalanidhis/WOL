@@ -1,0 +1,321 @@
+         <div class="progress skill-bar ">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                </div>
+            </div>
+  <div [@myAnimation]="show" class="pagenation col-xs-12" style="padding: 0px">
+      <ol class="breadcrumb page-breadcrumb">
+        <li><a><i class="fa fa-home fa-lg" aria-hidden="true"></i> &nbsp; Home</a></li>
+        <li><a>Account Home</a></li>
+      </ol>
+    </div>
+    <div [@myAnimation]="show" class="pagecontentbar" style="margin-top:40px;">
+
+
+
+    <div class="merger col-lg-12" style="padding: 0px !important">
+
+<!---------------------------------------Account Details---------------------------------------------->
+   <div>
+    <div class="col-lg-6 col-lg-offset-2">
+    <div class="panel boxshadow">
+      <div class="panel-heading"  [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}">
+        <h4>Account Details</h4>
+      </div>
+      <div class="panel-body">
+        <div class="custinfo table-responsive" onload="getInvoiceDueAmount();">
+          <table class="table table-striped">
+            <tr>
+              <td><b>Bill Amount:</b></td>
+              <td> <span *ngFor="let b of invoiceDueData">${{b.amount - b.paidAmount}} </span></td>
+            </tr>
+            <tr>
+              <td><b>Due Date:</b></td>
+              <td><span *ngFor=" let b of invoiceDueData">{{b.dueDate}}</span></td>
+            </tr>
+            <tr>
+              <td><b>Auto Pay:</b></td>
+              <td>OFF</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="widget-detail-1" >
+          <span *ngFor="let b of invoiceDueData">
+          <span *ngIf="b.paidAmount < 1">
+          <a>
+          <button type="button" class="btn" [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo}" data-toggle="modal" data-target=".bs-example-modal-lg" routerLink="/payment" routerLinkActive="active1">Pay My Bill >></button>
+          </a>
+        </span>
+         <span *ngIf="b.paidAmount > 1">
+          Paid Amount : ${{b.paidAmount}} <br/>
+          Paid Date : {{b.paidDate}}
+        </span></span>
+        <span style=" float: right;">  <a href="/billing"><button class="btn" [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo}">View Bill >></button></a></span>
+
+        </div>
+      </div>
+    </div>
+    </div>
+
+<!---------------------------------------------Notifications---------------------------------------------->
+   <div class="col-lg-2">
+      <div class="panel boxshadow">
+        <div class="panel-heading " [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}">
+          <h4>Notifications
+            <span class="pull-right" style="display: inline-block;">
+              <i class="fa fa-bell faa-ring animated"></i>
+            </span>
+          </h4>
+        </div>
+
+        <div class="panel-body" style="height: 195px;">
+          <ul class="list-unstyled">
+            <li>Your Bill is Over Due. <a href="http://windstream.com">Pay Now</a></li>
+            <br>
+            <li>It is more than an year since you last changed your password. <a href="http://windstream.com">Click here</a> to change now.</li>
+            <br>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<!---------------------------------------------Invoices---------------------------------------------->
+<div class="col-lg-6 col-lg-offset-2">
+      <div class="panel boxshadow">
+      <div class="panel-heading"  [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}">
+        <h4>Past Invoices</h4>
+      </div>
+      <div class="panel-body">
+        <div class="custinfo table-responsive" onload="getInvoiceData();">
+          <table class="table table-striped"   [mfData]="data | dataFilter : filterQuery" #mf="mfDataTable"
+          [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+          <thead>
+            <tr>
+              <th><b>Date</b></th>
+              <th><b>Amount</b></th>
+              <th><b>Download Bill</b></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let a of invoiceData" >
+
+              <td>{{a.month}} {{a.year}}</td>
+              <td>${{a.amount}}</td>
+              <td><a href="www.google.com">View Bill</a></td>
+            </tr>
+          </tbody>
+          </table>
+
+
+        </div>
+
+        <div class="widget-detail-1" style="text-align: center;">
+        <a routerLink="/viewinvoice"><button class="btn" [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo}">View All Invoices</button></a>
+        </div>
+
+      </div>
+    </div>
+</div>
+
+
+<!---------------------------------------------Tickets---------------------------------------------->
+
+    <div class="col-lg-2">
+
+      <div class="panel boxshadow">
+        <div class="panel-heading"  [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}">
+          <h4>Open Requests
+            <span class="pull-right" style="display: inline-block;">
+              <i class="fa fa-ticket animated"></i>
+            </span>
+          </h4>
+        </div>
+
+        <div class="panel-body">
+          <div class="custinfo table-responsive" onload="getAllTickets();">
+            <table class="table table-striped" [mfData]="data | dataFilter : filterQuery" #mf="mfDataTable"
+                   [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+              <thead>
+              <tr>
+                <th><b>Category</b></th>
+                <th><b>Status</b></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of ticketData">
+
+                <td>{{item.name}}</td>
+                <td>
+              <div *ngIf="item.resolved==true">CLOSED</div>
+              <div *ngIf="item.resolved!=true">OPEN</div>
+              </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="widget-detail-1" style="text-align: center;">
+            <a href="/viewticket">
+              <button class="btn" [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo}">View All Tickets</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!---------------------------------------------carousel---------------------------------------------->
+<div class="col-lg-6 col-lg-offset-2">
+  <div class="panel panel-default boxshadow">
+  <div class="panel-body">
+    <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+
+<div class="carousel-inner" >
+<div class="item slides active">
+  <div class="panel panel-group myCarouselPanel">
+   <div class="slide-1">
+
+    </div>
+   <div class="hero">
+
+      <h5 style="color: #5cb85c"> <b>DISH & Internet Bundle</b></h5>
+
+    <div>
+      <ul style="list-style-type: none; padding: 0px; margin: 0px;">
+      <li style="text-align: center;"><strong>You
+      Get:</strong></li>
+      <li style="text-align: center;">High-Speed Internet,
+      Unlimited Phone, and DISH TV all at one low price</li>
+      <li></li>
+      </ul>
+    </div>
+
+    <div class="widget-detail-1" style="text-align: center;padding-top: 10px">
+      <button class="btn btn-success">Check Availability</button>
+    </div>
+   </div>
+
+
+  </div>
+</div>
+<div class="item slides">
+  <div class="panel panel-group myCarouselPanel">
+   <div class="slide-2"></div>
+      <div class="hero">
+
+      <h5 style="color: #5cb85c"><b> Voice and Internet Bundle </b> </h5>
+
+    <div>
+      <ul style="list-style-type: none; padding: 0px; margin: 0px;">
+      <li style="text-align: center;"><strong>Speeds of up to 100 Mbps. No speed-tiered pricing.</strong></li>
+      </ul>
+    </div>
+
+    <div class="widget-detail-1" style="text-align: center;padding-top: 10px">
+      <button class="btn btn-success">Get a Quote</button>
+    </div>
+   </div>
+  </div>
+</div>
+<div class="item slides">
+  <div class="panel panel-group myCarouselPanel">
+    <div class="slide-3">
+
+    </div>
+     <div class="hero">
+
+      <h5 style="color: #5cb85c"><b>Online Only Offer!</b></h5>
+
+  <div>
+      <ul style="list-style-type: none; padding: 0px; margin: 0px;">
+      <li style="text-align: center;"><strong> Receive a $100 credit in cart when you purchase an
+      internet plan</strong></li>
+      </ul>
+    </div>
+    <div class="widget-detail-1" style="text-align: center;padding-top: 10px">
+      <button class="btn btn-success" >Shop
+      Plans</button>
+    </div>
+     </div>
+
+  </div>
+</div>
+</div>
+</div>
+  </div>
+</div>
+</div>
+<!---------------------------------------------SUPPORT---------------------------------------------->
+<div class="col-lg-2">
+  <div class="panel boxshadow" style="height: 310px;">
+      <div class="panel-heading"  [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}">
+        <h4>
+            Support
+            <span class="pull-right" style="display: inline-block;">
+              <i class="fa fa-question-circle animated"></i>
+            </span>
+        </h4>
+      </div>
+      <div class="panel-body" style="line-height: 26px;">
+      <p style="min-height: 70px; padding-left: 13px;">
+      Choose from the following options <br/> if you’re in need of extra
+      assistance.
+      </p>
+      <div
+        style="color: rgb(119, 184, 0); padding-bottom: 10px; padding-left: 13px;">
+        <img
+        src="http://smallbusiness.windstream.com/uploadedImages/SMB_Site/Content/Horizontal_Callout/phoneIcon.png"
+        alt="Phone Icon" title="Phone Icon"
+        style="float: none; vertical-align: top;"><span
+        style="vertical-align: top;">&nbsp;&nbsp;&nbsp;<strong>(866)
+        260-1615</strong></span>
+      </div>
+      <div
+        style="color: rgb(119, 184, 0); padding-bottom: 10px; padding-left: 13px;">
+        <img
+        src="http://smallbusiness.windstream.com/uploadedImages/SMB_Site/Content/Horizontal_Callout/emailIcon.png"
+        alt="Email Icon" title="Email Icon"
+        style="float: none; vertical-align: top;"><span
+        style="vertical-align: top;">&nbsp;&nbsp;<strong>Email
+        Us</strong></span>
+      </div>
+      <div
+      style="color: rgb(119, 184, 0); padding-bottom: 10px; padding-left: 13px;">
+        <img
+        src="http://smallbusiness.windstream.com/uploadedImages/SMB_Site/Content/Horizontal_Callout/liveChatIcon.png"
+        alt="Live Chat Icon" title="Live Chat Icon"
+        style="float: none; vertical-align: top;"><span
+        style="vertical-align: top;">&nbsp;&nbsp;<strong>Live
+        Chat</strong></span>
+      </div>
+    </div>
+    </div>
+</div>
+
+
+              <div>
+        <div class="col-lg-2" style="margin-left:0.333%">
+          <div class="panel boxshadow" style="height: 209px;">
+            <div class="panel-heading " [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}">
+              <h4>Blog
+                <span class="pull-right" style="display: inline-block;">
+              <i class="fa fa-rss animated"></i>
+            </span>
+              </h4>
+            </div>
+            <div class="panel-body">
+              <p style="padding-left: 13px;">
+                Subscribe to our <a href="http://blog.windstream.com/">blog</a>
+              </p>
+              <div class="row col-lg-11" style="margin: auto">
+                <input type="text" class="form-control" placeholder="What's your email ?"/>
+              </div>
+              <div class="row col-lg-11" style="margin: auto;  padding-top:10px; text-align: center">
+                <button type="button" class="btn" [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo}">
+                  Subscribe
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+    </div>

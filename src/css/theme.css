@@ -1,0 +1,125 @@
+
+
+/*Panel theme change */
+.white{
+
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(50%,#fff),color-stop(100%,#ebebeb));
+  color: #000000;
+
+}
+
+.blue{
+    background-color: #0277bd;
+    border-color: #0277bd;
+    color: #ffffff;
+	
+}
+.green{
+	   background: rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(125, 186, 0, 1) 0%, rgba(107, 163, 4, 1) 25%, rgba(82, 130, 9, 1) 50%, rgba(56, 99, 14, 1) 75%, rgba(44, 83, 17, 1) 100%) repeat scroll 0 0;
+    color: #ffffff;
+}
+.indigo{
+	  background-color: #3F51B5;
+    border-color: #3F51B5;
+    color: #ffffff;
+}
+.navy{
+    background-color: #39435c;
+    border-color: #39435c;
+    color: #ffffff;
+}
+
+
+/*Font theme change */
+
+.fanavy{
+    color: #39435c;
+    
+}
+
+.faindigo{
+	  color: #3F51B5;
+   
+}
+.fawhite{
+  color: #ebebeb;
+
+}
+.fawhite{
+  color: #ebebeb;
+
+}
+.fagreen{
+	color:rgba(82, 130, 9, 1);
+}
+
+.fablue{
+   color: #0277bd;
+   
+	
+}
+
+/*Button theme change */
+.btnnavy{
+     background:#4697ce  ;
+    color: #ffffff;
+    
+}
+
+.btnindigo{
+   background:#03A9F4 ;
+    color: #ffffff;
+   
+}
+.btnwhite{
+ background:rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(125, 186, 0, 1) 0%, rgba(107, 163, 4, 1) 25%, rgba(82, 130, 9, 1) 50%, rgba(56, 99, 14, 1) 75%, rgba(44, 83, 17, 1) 100%) repeat scroll 0 0 ;
+    color: #ffffff;
+
+}
+.btngreen{
+ background:rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(125, 186, 0, 1) 0%, rgba(107, 163, 4, 1) 25%, rgba(82, 130, 9, 1) 50%, rgba(56, 99, 14, 1) 75%, rgba(44, 83, 17, 1) 100%) repeat scroll 0 0 ;
+    color: #ffffff;
+}
+
+.btnblue{
+ background:#1976D2 ;
+    color: #ffffff;
+   
+  
+}
+
+/*Menu Bar Theme*/
+
+ 
+  .menunavy{
+ background-color: #2e353d;
+  border-color: #2e353d;
+    color: #ffffff;
+    
+}
+
+.menuindigo{
+background-color: #303F9F;
+  border-color: #303F9F;
+    color: #ffffff;
+   
+}
+.menuwhite{
+background-color: #2e353d;
+  border-color: #2e353d;
+    color: #ffffff;
+
+}
+.menugreen{
+background-color: #2e353d;
+  border-color: #2e353d;
+    color: #ffffff;
+}
+
+.menublue{
+background-color: #1976D2;
+  border-color: #1976D2;
+    color: #ffffff;
+   
+  
+}

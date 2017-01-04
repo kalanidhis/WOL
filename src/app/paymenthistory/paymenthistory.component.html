@@ -1,0 +1,110 @@
+<div *ngIf="!top" class="container-fluid" style="padding: 0px !important">
+  <side-bar></side-bar>
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2" style="padding: 0px !important">
+<div class="panel panel-default">
+  <div class="panel-heading">Payment History</div>
+  <div class="panel-body">
+       <div style="text-align: right !important;">
+                
+                <select class="col-xs-2,form-control input-sm" [(ngModel)]="rowsOnPage" >
+                    <option [ngValue]="5">5</option>
+                    <option [ngValue]="10">10</option>
+                    <option [ngValue]="15">15</option>
+                </select>
+            </div>
+
+            <table class="table table-striped" [mfData]="data | dataFilter : filterQuery" #mf="mfDataTable"
+                   [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+                <thead>
+                <tr>
+                    <th>
+                        <mfDefaultSorter by="mode">Mode Of Payment</mfDefaultSorter>
+                    </th>    
+                    <th >
+                        <mfDefaultSorter by="paidDate">Date of Payment</mfDefaultSorter>
+                    </th>
+                    <th >
+                        <mfDefaultSorter by="paidAmount">Amount Paid</mfDefaultSorter>
+                    </th>
+                </tr>
+                <tr>
+
+                </tr>
+                </thead>
+                <tbody>
+               
+                <tr *ngFor="let item of mf.data" >
+                   
+                    <td>{{item.mode}}</td>
+                    <td>{{item.paidDate}}</td>
+                    <td>{{item.paidAmount}}</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="5">
+                        <mfBootstrapPaginator [rowsOnPageSet]=""></mfBootstrapPaginator>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+  </div>
+</div>
+</div>
+</div>
+<div *ngIf="top">
+<side-bar-top></side-bar-top>
+<div class="" style="padding: 0px !important">
+<div class="panel panel-default">
+  <div class="panel-heading">Payment History</div>
+  <div class="panel-body">
+       <div style="text-align: right !important;">
+                
+                <select class="col-xs-2,form-control input-sm" [(ngModel)]="rowsOnPage" >
+                    <option [ngValue]="5">5</option>
+                    <option [ngValue]="10">10</option>
+                    <option [ngValue]="15">15</option>
+                </select>
+            </div>
+
+            <table class="table table-striped" [mfData]="data | dataFilter : filterQuery" #mf="mfDataTable"
+                   [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+                <thead>
+                <tr>
+                    <th>
+                        <mfDefaultSorter by="mode">Mode Of Payment</mfDefaultSorter>
+                    </th>    
+                    <th >
+                        <mfDefaultSorter by="paidDate">Date of Payment</mfDefaultSorter>
+                    </th>
+                    <th >
+                        <mfDefaultSorter by="paidAmount">Amount Paid</mfDefaultSorter>
+                    </th>
+                </tr>
+                <tr>
+
+                </tr>
+                </thead>
+                <tbody>
+               
+                <tr *ngFor="let item of mf.data" >
+                   
+                    <td>{{item.mode}}</td>
+                    <td>{{item.paidDate}}</td>
+                    <td>{{item.paidAmount}}</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="5">
+                        <mfBootstrapPaginator [rowsOnPageSet]=""></mfBootstrapPaginator>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+  </div>
+</div>
+</div>
+</div>
+
+

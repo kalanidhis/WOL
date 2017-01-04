@@ -1,0 +1,160 @@
+.progress {
+  height: 5px;
+margin: 0px;
+}
+.progress .skill {
+  font: normal 12px "Open Sans Web";
+  line-height: 35px;
+  padding: 0;
+  text-transform: uppercase;
+}
+.progress .skill .val {
+  float: right;
+  font-style: normal;
+}
+
+.progress-bar {
+  text-align: left;
+  transition-duration: 3s;
+}
+.boxshadow{
+    -webkit-box-shadow: 3px 3px 6px 1px rgba(179,178,170,1);
+    -moz-box-shadow: 3px 3px 6px 1px rgba(179,178,170,1);
+    box-shadow: 3px 3px 6px 1px rgba(179,178,170,1);
+}
+
+.pagecontentbar{
+
+  padding-top: 10px;
+}
+#chartdiv {
+  height: 250px;
+}           
+
+
+*[role="form"] {
+    max-width: 530px;
+    padding: 15px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 0.3em;
+}
+
+   @media (max-width: 768px){
+  #chartdiv {
+  width: 100%;
+  height: 250px;
+}        
+}
+@media (min-width: 768px){
+  #chartdiv {
+  width: 100%;
+  height: 250px;
+}        
+#chartdatausage {
+      width   : 100%;
+      height    : 250px;
+      font-size : 11px;
+    } 
+  }
+
+*[role="form"] h2 {
+    margin-left: 5em;
+    margin-bottom: 1em;
+}
+
+
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 100%;
+      height: 50%;
+      margin: auto;
+  }
+
+
+/* Card Box */
+.card-box {
+  padding: 5px;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  background-clip: padding-box;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+}
+.card-box .card-drop {
+  color: #98a6ad;
+  font-size: 20px;
+  line-height: 1px;
+  padding: 0px 5px;
+  display: inline-block;
+}
+.m-b-30 {
+    margin-bottom: 30px !important;
+}
+.m-t-0 {
+    margin-top: 0px !important;
+}
+.header-title {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+    margin-bottom: 8px;
+}
+
+.main-login{
+  background-color: #fff;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+   
+
+}
+
+.main-center{
+  margin-top: 30px;
+  margin: 0 auto;
+  max-width: 330px;
+    padding: 40px 40px;
+
+}
+
+.login-button{
+  margin-top: 5px;
+}
+
+.login-register{
+  font-size: 11px;
+  text-align: center;
+}
+.chartsec{
+   -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.pagenation ol > li{
+
+  display: inline-block;
+
+}
+.icon{
+  border:1px solid;
+  border-radius: 50%;
+width: 16%;
+height: auto;
+padding-top: 1%;
+text-align: center;
+margin: auto;
+padding-bottom: 10px;
+}
+.sidelist{
+  border-bottom: 1px solid #DBDBDB;
+}
+.modal-body ul >li{
+  list-style: none;
+  display: inline-block;
+  cursor: pointer;
+}
+

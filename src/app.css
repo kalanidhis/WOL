@@ -1,0 +1,12 @@
+
+a {
+    cursor: pointer;
+}
+
+.help-block {
+    font-size: 12px;
+}
+ html, body {
+            height: 100%;
+            margin: 0;
+        }

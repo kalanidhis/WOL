@@ -63,3 +63,4 @@ li.section.visited:before {
 li.section.visited.current:before {
     box-shadow: 0 0 0 2px mediumseagreen;
 }
+

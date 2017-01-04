@@ -1,0 +1,264 @@
+.progress {
+  height: 5px;
+  margin:0px;
+}
+.progress .skill {
+  font: normal 12px "Open Sans Web";
+  line-height: 35px;
+  padding: 0;
+
+  text-transform: uppercase;
+}
+.progress .skill .val {
+  float: right;
+  font-style: normal;
+  margin: 0 20px 0 0;
+}
+
+.progress-bar {
+  text-align: left;
+  transition-duration: 3s;
+}
+
+.boxshadow{
+    -webkit-box-shadow: 3px 3px 6px 1px rgba(179,178,170,1);
+    -moz-box-shadow: 3px 3px 6px 1px rgba(179,178,170,1);
+    box-shadow: 3px 3px 6px 1px rgba(179,178,170,1);
+}
+
+@media only screen and (min-width:1025px) and (max-width:1600px)  {
+   .container {
+    padding-right: 5px !important;
+    padding-left: 245px !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+ }
+}
+
+@media screen and (max-width: 1024px){
+
+   .container {
+    padding-right: 5px !important;
+    padding-left: 245px !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+ }
+
+}
+
+@media screen and (max-width: 768px){
+
+  .container {
+    padding-left: 245px !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+ }
+
+}
+
+@media screen and (max-width: 640px){
+
+   .container {
+    padding-right: 35px !important;
+    padding-left: 35px !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+ }
+
+}
+
+@media screen and (max-width: 480px){
+
+ .container {
+    padding-right: 35px !important;
+    padding-left: 35px !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+ }
+
+}
+
+@media screen and (max-width: 360px){
+ .container {
+    padding-right: 35px !important;
+    padding-left: 35px !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+}
+
+@media screen and (max-width: 310px){
+
+  .container {
+    padding-right: 35px !important;
+    padding-left: 35px !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+ }
+
+}
+
+.navbar .navbar-nav > li.open > a:hover,
+.navbar .navbar-nav > li.open > a:focus {
+    background-color: green;
+    color: white;
+}
+
+.carousel-control{
+    width: 8%;
+}
+
+.carousel-indicators li {
+    background-color: #999;
+    background-color: rgba(136, 136, 136, 0.25);
+}
+
+.carousel-indicators .active {
+    background-color: #1bbc0c;
+}
+
+.mySearchIcon{
+    color: green;
+}
+
+.navbar-nav > li > a {
+    font-size: 18px;
+}
+
+/**End BootStrap Prop */
+
+.inner-addon {
+    position: relative;
+}
+
+/* style glyph */
+.inner-addon .glyphicon {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+}
+
+/* align glyph */
+.right-addon .glyphicon { right: 0;}
+
+/* add padding  */
+.right-addon input { padding-right: 30px; }
+
+
+.navbar-brand {
+    padding: 0;
+}
+.navbar-brand>img {
+    height: 100%;
+    padding: 4px;
+    width: auto;
+}
+
+.customBody{
+    background-color: #F2F2F2;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.mayMainDiv{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.myNavBar{
+    padding-left: 50px;
+    padding-right: 50px;
+    box-shadow: 0 4px 13px -2px rgba(0,0,0,0.68);
+    box-shadow: -1px 5px 15px -2px rgba(14,84,16,0.84);
+    background-color: white;
+}
+
+.mySearchIcon{
+    font-size: 16px;
+}
+
+.verticalLine {
+    min-height: 60px;
+    padding-bottom: 0;
+    padding-top: 0;
+    width: 2px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: #8c8c8c;
+    display:inline-block;
+}
+
+ul li a {
+    text-align: center;
+}
+
+.myNavList li:hover,
+.myNavList li > a:hover{
+    background-color: green;
+}
+
+.myNavList li a:hover,
+.myNavList li > a:hover{
+    color: white !important;
+}
+
+.whiteBackGround{
+    background-color: white;
+}
+
+.myCarousel{
+    box-shadow: 4px 6px 28px -4px rgba(187,209,174,1);
+}
+
+.myCarouselButton{
+    background-color: inherit;
+    background-image: none !important;
+}
+
+.myCarouselButton .glyphicon{
+    font-size: 40px;
+    color: darkgreen;
+    top:140px;
+}
+
+.myCarousel .panel{
+    margin-bottom: 0;
+    height: 300px ;
+    border-left: none;
+    border-right: none;
+}
+
+.greenPanelHead{
+    background: radial-gradient(rgb(57,149,39),rgb(82,183,6));
+    background: -webkit-radial-gradient(rgb(57,149,39),rgb(82,183,6));
+    padding-top: 1px;
+    padding-bottom: 0px;
+}
+
+.greenPanelHead h3{
+    color: white;
+}
+
+.myCarousel .panel-body{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+/*
+.panel:not(.myCarouselPanel){
+    box-shadow: 4px 6px 28px -4px rgba(187,209,174,1);
+}
+*/
+/*Less than 768*/
+@media all and (max-width: 768px) {
+    body{
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+
+    .verticalLine{
+        display: none;
+    }
+}
+
+.error{
+	color: darkred !important;
+}

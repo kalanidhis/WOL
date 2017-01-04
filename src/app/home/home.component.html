@@ -1,0 +1,144 @@
+<div class="container-fluid" style="padding: 0px !important">
+
+
+<div  class="sidemenubar">
+  <div class="nav-side-menu" style="margin-bottom:0px !important">
+    <div class="brand">
+      <img src="../img/windstream-logo.png" style="height: 50px;padding: 6px">
+    </div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+    
+<!--User Detail-->
+
+    <div class="hidden-xs" style="padding: 5px;">
+     
+       <div class="profile-userpic">
+          <img src="../img/profile.jpg" class="img-responsive" alt="profile pic">
+        </div>
+
+            <div class="profile-usertitle">
+              <div class="profile-usertitle-job">
+            Welcome !
+          </div>
+          <div class="profile-usertitle-name">
+            {{currentUser.firstName}} {{currentUser.lastName}}
+          </div>
+          <div class="profile-usertitle-job">
+           <i class="fa fa-phone-square" aria-hidden="true"></i>
+           (804)-325-5379
+          </div>
+        </div>
+    </div>
+        
+        <div class="menu-list">
+  
+            <ul id="menu-content" class="menu-content collapse out">
+                <li  class="collapsehead" style="border-top: 1px solid #23282e;">
+                  <a href="#">
+                  <i class="fa fa-dashboard fa-lg"></i> Home
+                  </a>
+                </li>
+                <li  class="collapsehead" style="border-top: 1px solid #23282e;">
+                  <a href="#">
+                  <i class="fa fa-dashboard fa-lg"></i> Dashboard
+                  </a>
+                </li>
+
+                <li  data-toggle="collapse" data-target="#products" class="collapsed">
+                  <a><i class="fa fa-address-book-o fa-lg"></i> MY Account <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="products">
+                 <li routerLink="/payment" routerLinkActive="active1"><a>Make Payment</a></li>
+                   <li (click)="gotoHeroes()"><a>Biling</a></li>
+                 
+                     <li routerLink="/createtroubleticket" routerLinkActive="active1"><a> Create Trouble Ticket</a></li>
+                    <li routerLink="/viewinvoice" routerLinkActive="active1"><a>View Invoice Details</a></li>   
+                    <li><a href="#">Auto Payment</a></li>
+                    <li routerLink="/paymenthistory" routerLinkActive="active1"><a>Payment History</a></li>
+        
+                </ul>
+
+<!-- 
+                <li data-toggle="collapse" data-target="#service" class="collapsed">
+                  <a><i class="fa fa-users fa-lg"></i> Users <span class="arrow"></span></a>
+                </li>  
+                <ul class="sub-menu collapse" id="service">
+                  <li routerLink="/createtroubleticket" routerLinkActive="active1"><a> Create Trouble Ticket</a></li>
+                  <li>New Service 2</li>
+                  <li>New Service 3</li>
+                </ul>
+
+
+               <li data-toggle="collapse" data-target="#new" class="collapsed">
+                  <a href="#"><i class="fa fa-bell fa-lg"></i> Notification <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="new">
+                  <li>New New 1</li>
+                  <li>New New 2</li>
+                  <li>New New 3</li>
+                </ul>
+-->
+
+                 <li class="collapsehead" routerLink="/profile" routerLinkActive="active1">
+                  <a>
+                  <i class="fa fa-user fa-lg"></i> Profile
+                  </a>
+                  </li>
+
+            <!--     <li>
+                  <a href="#">
+                  <i class="fa fa-users fa-lg"></i> Users
+                  </a>
+                </li> -->
+            </ul>
+     </div>
+</div>
+
+
+
+</div>
+  <div class="Navigation_Menu" style="color: white">
+<div class="visible-lg">
+  
+    <span [routerLink]="['/login']" class="pull-right menu_icon"><i class="fa fa-sign-out" aria-hidden="true"></i> &nbsp; Sign Out</span>
+     <span class="pull-right menu_icon page">  <i class="fa fa-info" aria-hidden="true"></i> &nbsp; Help</span>
+   <span class="pull-right menu_icon page" routerLink="/profile" routerLinkActive="active1"> <i class="fa fa-id-card-o" aria-hidden="true"></i> &nbsp; My Profile</span>
+      
+      <span routerLink="/about" routerLinkActive="active1"class="pull-right menu_icon page"><i class="fa fa-address-card" aria-hidden="true"></i> &nbsp;  About us</span>
+
+      <span class="pull-right menu_icon page" routerLink="/contact" routerLinkActive="active1">  <i class="fa fa-phone-square" aria-hidden="true"></i> &nbsp; Contact us</span>
+
+     
+     
+</div>
+  
+
+
+<div class="usercontent" style="padding-left: 5px;">
+  
+       <span class="userdetail hidden-lg hidden-md hidden-sm">
+        <a href="#">
+          <img class="img-circle" alt="" src="../img/profile.jpg">
+          <span>Welcome,</span><span class="username username-hide-on-mobile">  {{currentUser.firstName}} {{currentUser.lastName}}</span>
+        </a>
+      </span>
+
+  <span class="userdetail hidden-lg "  (click)="isClassVisible = !isClassVisible;"  style="color: white;float: right;margin-right:20px"><i class="fa fa-ellipsis-v fa-2x " aria-hidden="true"></i>
+</span>
+</div>
+
+  <div class="main_menu hidden-lg"  [ngClass]="{'slideside': isClassVisible }" style="position: absolute;">
+<div class="listmenu" [ngClass]="{'listmenuview': isClassVisible }">
+  <ul>
+    <span (click)="isClassVisible = !isClassVisible;" style="cursor: pointer;"><i class="fa fa-times fa-lg" aria-hidden="true"></i></span>
+          <li routerLink="/profile" routerLinkActive="active1"><span><a>My Profile</a></span></li>
+          <li routerLink="/about" routerLinkActive="active1"><span><a>About us</a></span></li>
+          <li routerLink="/contact" routerLinkActive="active1"><span><a>Contact us</a></span></li>
+          <li><span><a [routerLink]="['/login']">Logout</a></span></li>
+  </ul>
+
+
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,125 @@
+<div class="sidemenubar">
+    <div class="nav-side-menu col-sm-3 col-lg-2" [ngClass]="{ menublue:isBlue, menunavy: isNavy, menuwhite:isWhite, menugreen: isGreen, menuindigo: isIndigo}" style="margin-bottom:0px !important">
+        <div class="brand">
+            <img src="../img/windstream-logo.png" style="height: 50px;padding: 6px">
+        </div>
+        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+        <!--User Detail-->
+        <div class="hidden-xs" style="padding: 5px;">
+
+            <div class="profile-userpic">
+                <img src="../img/profile.jpg" class="img-responsive" alt="profile pic">
+            </div>
+
+            <div class="profile-usertitle">
+                <div class="profile-usertitle-job">
+                    Welcome !
+                </div>
+                <div class="profile-usertitle-name">
+                    Tony Thomas
+                </div>
+                <div class="profile-usertitle-job">
+                    <i class="fa fa-phone-square" aria-hidden="true"></i>
+                    (804)-325-5379
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-list">
+
+            <ul id="menu-content" class="menu-content collapse out">
+                <li routerLink="/home" routerLinkActive="active1" class="collapsehead"
+                    style="border-top: 1px solid #23282e;">
+                    <a id="home">
+                        <i class="fa fa-home fa-lg"></i> Home
+                    </a>
+                </li>
+
+                <li data-toggle="collapse" data-target="#products" class="collapsed"  style="border-top: 1px solid #23282e;">
+                    <a id="myAccount"><i class="fa fa-address-book-o fa-lg"></i> My Account <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="products">
+                    <li routerLink="/payment" routerLinkActive="active1"><a id="makePayment">Make Payment</a></li>
+                    <li routerLinkActive="active1" (click)="gotoHeroes()"><a id="billing">Billing</a></li>
+
+                    <li routerLink="/createtroubleticket" routerLinkActive="active1"><a id="createTicket"> Create Trouble Ticket</a></li>
+                    <li routerLink="/viewticket" routerLinkActive="active1"><a id="viewTicket">View Tickets</a></li>
+
+                    <li routerLink="/viewinvoice" routerLinkActive="active1"><a id="viewInvoice">View Invoice Details</a></li>
+                    <!-- <li routerLink="/paymenthistory" routerLinkActive="active1"><a>Payment History</a></li> -->
+
+                </ul>
+                <li routerLink="/profile" routerLinkActive="active1" class="collapsehead"
+                    style="border-top: 1px solid #23282e;">
+                    <a id="myProfile">
+                        <i class="fa fa-id-card-o" aria-hidden="true"></i> My Profile
+                    </a>
+                </li>
+
+
+                <li routerLink="/contact" routerLinkActive="active1" class="collapsehead"
+                    style="border-top: 1px solid #23282e;">
+                    <a id="contactUs">
+                        <i class="fa fa-phone-square" aria-hidden="true"></i>Contact us
+                    </a>
+                </li>
+
+                <li routerLink="/sampledata" routerLinkActive="active1" class="collapsehead"
+                    style="border-top: 1px solid #23282e;">
+                    <a id="sampleData">
+                        <i class="fa fa-phone-square" aria-hidden="true"></i>Sample Data
+                    </a>
+                </li>
+
+
+                <li class="collapsehead" style="border-top: 1px solid #23282e;">
+                    <a href="#">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>Sign Out
+                    </a>
+                </li>
+                <li class="collapsehead" (click)="clicked()" style="border-top: 1px solid #23282e;">
+                    <a>
+                        <i class="fa fa-gear fa-lg faa-spin animated"></i>Switch Menu
+                    </a>
+                </li>
+                <li class="collapsehead" (click)="toggleEditMode()" style="border-top: 1px solid #23282e;">
+                    <a data-toggle="modal" data-target="#myModal">
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i>Customize View
+                    </a>
+                </li>
+                    <!------------------------Chnge Theme-------------------------------------->  
+                   <li data-toggle="collapse" data-target="#theme" class="collapsed"  style="border-top: 1px solid #23282e;border-bottom: 1px solid #23282e;">
+                    <a><i class="fa fa-superpowers fa-lg"></i>Change Theme <i class="fa fa-circle" 
+                    [ngClass]="{ fablue:isBlue, fanavy: isNavy, fawhite:isWhite, fagreen: isGreen, faindigo: isIndigo}" ></i><span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="theme">
+                       <li (click)='settheme("green")'><a><i class="fa fa-circle fagreen" style="color: green"></i> &nbsp; Green</a></li>
+                    <li (click)='settheme("indigo")'><a> <i class="fa fa-circle faindigo" style="color: indigo"></i> &nbsp;Indigo</a></li>
+                    <li (click)='settheme("blue")'><a> <i class="fa fa-circle fablue" style="color: blue"></i> &nbsp;Blue</a></li>
+                    <li (click)='settheme("navy")'><a> <i class="fa fa-circle fanavy" style="color: navy-blue"></i> &nbsp;Navy</a></li>
+                    <li (click)='settheme("white")'><a> <i class="fa fa-circle fawhite" style="color: white"></i> &nbsp;White</a></li>
+                    <!-- <li routerLink="/paymenthistory" routerLinkActive="active1"><a>Payment History</a></li> -->
+
+                </ul>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<div class="Navigation_Menu hidden-lg hidden-md hidden-sm"  [ngClass]="{ menublue:isBlue, menunavy: isNavy, menuwhite:isWhite, menugreen: isGreen, menuindigo: isIndigo}" style="color: white">
+    <div class="usercontent" style="padding-left: 5px;">
+
+    <span class="userdetail hidden-lg hidden-md hidden-sm">
+    <a>
+    <img class="img-circle" alt="" src="../img/profile.jpg">
+    <span>Welcome,</span><span class="username username-hide-on-mobile"> Tony Thomas</span>
+    </a>
+    </span>
+
+    </div>
+
+</div>
+<!--------------------------------------Navigation ends here -------------------------------------------->
+ 

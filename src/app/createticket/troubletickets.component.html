@@ -1,0 +1,180 @@
+
+<div *ngIf="!top" class="container-fluid" style="padding: 0px !important">
+  <side-bar></side-bar>
+           <div class="progress skill-bar ">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                </div>
+            </div>
+
+             <div  *ngIf="errorshow" class="alert alert-danger" role="alert" style="padding-left: 250px;">
+ <i class="fa fa-warning faa-flash animated"></i> Error while creating ticket. Please contact support team
+</div>
+   <div  *ngIf="successshow" class="alert alert-success" role="alert" style="padding-left: 250px;">
+ <i class="fa fa-smile-o faa-flash animated"></i> Ticket created successfully. <span routerLink="/viewticket"><a >View Ticket</a></span>
+</div>
+
+   <div class="pagenation  col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2" style="padding: 0; background-color: #F2F2F2">
+    <ol class="breadcrumb page-breadcrumb" style="margin:0px">
+      <li routerLink="/home"><a ><i class="fa fa-home fa-lg" aria-hidden="true"></i> &nbsp; Home</a></li>
+      <li><a >Create Ticket</a></li>
+    </ol>
+  </div>
+ <div   [@myAnimation]="show" class="col-xs-8 col-xs-offset-2  col-sm-7 col-sm-offset-4 col-lg-6 col-lg-offset-4" style="padding-top: 20px">
+   <div class="panel  boxshadow">
+  <div class="panel-heading" [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}"><h4>Create Trouble Ticket</h4></div>
+  <div class="panel-body">
+<form [formGroup]="userForm" (submit)="submitForm(userForm)" class="form-horizontal">
+      <div class="form-group row" [ngClass]="{'has-error': (!userForm.controls.name.valid && userForm.controls.name.touched)}">
+        <label for="name" class="col-sm-2 control-label">Name</label>
+
+        <div class="col-sm-10">
+          <input type="text" class="form-control" formControlName="name" id="name" placeholder="Full Name">
+           <control-messages [control]="userForm.controls.name" class="error"></control-messages> 
+        </div>
+      </div>
+
+
+      <div class="form-group row" [ngClass]="{'has-error': (!userForm.controls.email.valid && userForm.controls.email.touched)}">
+        <label for="email" class="col-sm-2 control-label">Email</label>
+
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ngControl="email"  formControlName="email" id="email">
+          <control-messages [control]="userForm.controls.email" class="error"></control-messages>
+        </div>
+      </div>
+
+
+       <div class="form-group row" [ngClass]="{'has-error': (!userForm.controls.phone.valid && userForm.controls.phone.touched)}">
+        <label for="phone" class="col-sm-2 control-label">Phone No.</label>
+
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ngControl="phone"  formControlName="phone" id="phone">
+          <control-messages [control]="userForm.controls.phone" class="error"></control-messages>
+        </div>
+      </div>
+
+      <div class="form-group row" [ngClass]="{'has-error': (!userForm.controls.category.valid && userForm.controls.category.touched)}">
+        <label for="category" class="col-sm-2 control-label">Category</label>
+
+        <div class="col-sm-10">
+         <select class="form-control"  ngControl="category" formControlName="category" id="category">
+          <option ngValue="">Select Category</option>
+          <option ngValue="Billing_Payments">Billing and Payments</option>
+          <option ngValue="Dish">Dish</option>
+          <option ngValue="Internet">Internet</option>
+          <option ngValue="Reset_Password">Reset Password</option>
+          <option ngValue="Others">Others</option>
+        </select>
+        <control-messages [control]="userForm.controls.category" class="error"></control-messages>
+        </div>
+      </div>
+
+      <div class="form-group row" [ngClass]="{'has-error': (!userForm.controls.description.valid && userForm.controls.description.touched)}">
+        <label for="description" class="col-sm-2 control-label">Description</label>
+
+      <div class="col-sm-10">
+       <textarea class="form-control" ngControl="description" formControlName="description" 
+       id="description"></textarea>
+      <span class="error"> <control-messages [control]="userForm.controls.description" class="error"></control-messages> </span>
+        </div>
+      </div>
+      <div class="form-group row" style="text-align:center;">
+              <button [disabled]="!userForm.valid" type="submit" class="btn btn-auth" [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo}">Submit</button>
+    
+      </div>
+    </form>
+  </div>
+</div>
+ </div> 
+
+</div>
+<div *ngIf="top">
+<side-bar-top></side-bar-top>
+         <div class="progress skill-bar ">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                </div>
+            </div>
+
+
+ <div  *ngIf="errorshow" class="alert alert-danger" role="alert">
+ <i class="fa fa-warning faa-flash animated"></i> Error while creating ticket. Please contact support team !!
+</div>
+ <div  *ngIf="successshow" class="alert alert-success" role="alert">
+ <i class="fa fa-smile-o faa-flash animated"></i> Ticket created successfully. <span routerLink="/viewticket"><a >View Ticket</a></span>
+</div>
+
+ <div class="pagenation  col-lg-12" style="padding: 0; background-color: #F2F2F2">
+    <ol class="breadcrumb page-breadcrumb" style="margin:0px">
+      <li routerLink="/home"><a><i class="fa fa-home fa-lg" aria-hidden="true"></i> &nbsp; Home</a></li>
+      <li><a>Create Ticket</a></li>
+    </ol>
+  </div>
+<div   [@myAnimation]="show" class="col-lg-8 col-lg-offset-2" style="padding-top: 20px">
+  <div class="panel boxshadow" style="border:0px;">
+  <div class="panel-heading" [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}"><h4>Create Trouble Ticket</h4></div>
+  <div class="panel-body">
+<form [formGroup]="userForm" (submit)="submitForm(userForm)" class="form-horizontal">
+      <div class="form-group row" [ngClass]="{'has-error': (!userForm.controls.name.valid && userForm.controls.name.touched)}">
+        <label for="name" class="col-sm-2 control-label">Name</label>
+
+        <div class="col-sm-10">
+          <input type="text" class="form-control" formControlName="name" id="name" placeholder="Full Name">
+           <control-messages [control]="userForm.controls.name" class="error"></control-messages> 
+        </div>
+      </div>
+
+
+      <div class="form-group row" [ngClass]="{'has-error': (!userForm.controls.email.valid && userForm.controls.email.touched)}">
+        <label for="email" class="col-sm-2 control-label">Email</label>
+
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ngControl="email"  formControlName="email" id="email">
+          <control-messages [control]="userForm.controls.email" class="error"></control-messages>
+        </div>
+      </div>
+
+
+       <div class="form-group row" [ngClass]="{'has-error': (!userForm.controls.phone.valid && userForm.controls.phone.touched)}">
+        <label for="phone" class="col-sm-2 control-label">Phone No.</label>
+
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ngControl="phone"  formControlName="phone" id="phone">
+          <control-messages [control]="userForm.controls.phone" class="error"></control-messages>
+        </div>
+      </div>
+
+      <div class="form-group row" [ngClass]="{'has-error': (!userForm.controls.category.valid && userForm.controls.category.touched)}">
+        <label for="category" class="col-sm-2 control-label">Category</label>
+
+        <div class="col-sm-10">
+         <select class="form-control"  ngControl="category" formControlName="category" id="category">
+          <option ngValue="">Select Category</option>
+          <option ngValue="Billing_Payments">Billing and Payments</option>
+          <option ngValue="Dish">Dish</option>
+          <option ngValue="Internet">Internet</option>
+          <option ngValue="Reset_Password">Reset Password</option>
+          <option ngValue="Others">Others</option>
+        </select>
+        <control-messages [control]="userForm.controls.category" class="error"></control-messages>
+        </div>
+      </div>
+
+      <div class="form-group row" [ngClass]="{'has-error': (!userForm.controls.description.valid && userForm.controls.description.touched)}">
+        <label for="description" class="col-sm-2 control-label">Description</label>
+
+      <div class="col-sm-10">
+       <textarea class="form-control" ngControl="description" formControlName="description" 
+       id="description"></textarea>
+      <span class="error"> <control-messages [control]="userForm.controls.description" class="error"></control-messages> </span>
+        </div>
+      </div>
+      <div class="form-group row" style="text-align:center;">
+              <button [disabled]="!userForm.valid" type="submit" class="btn btn-auth" [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo}">Submit</button>
+    
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+
+</div>

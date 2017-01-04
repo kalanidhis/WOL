@@ -1,16 +1,28 @@
 import { Component } from '@angular/core';
 
-
+import {CookieService} from 'angular2-cookie/core';
 
 
 
 @Component({
-  selector: 'my-app',
+  selector: 'app',
   templateUrl: '../html/app.component.html',
-  styleUrls: ['../css/app.component.css']
+  styleUrls: ['../css/app.component.css'],
+   providers: [CookieService]
 })
 
 export class AppComponent {
+
+ public ngOnInit(): any
+  {
+
+
+  }
+
+	  constructor(private _cookieService:CookieService) {
+
+  }
+
 
 }
 

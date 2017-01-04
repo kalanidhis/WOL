@@ -1,0 +1,126 @@
+         <div class="progress skill-bar ">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                </div>
+            </div>
+ <div class="pagenation  col-lg-12" style="padding: 0; background-color: #F2F2F2">
+    <ol class="breadcrumb page-breadcrumb" style="margin:0px">
+      <li routerLink="/home"><a><i class="fa fa-home fa-lg" aria-hidden="true"></i> &nbsp; Home</a></li>
+      <li><a>Billing</a></li>
+    </ol>
+  </div>
+<div   [@myAnimation]="show" class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2" style="">
+
+<div class="col-xs-12 col-lg-4 col-lg-offset-8 " style="padding: 20px">
+  
+    <div class="input-group date pull-right boxshadow" id='date' style="cursor: pointer;">
+
+       <input type="text" class="form-control" name="monthvalue" id='dtp' [(ngModel)]="model.monthvalue" #monthvalue="ngModel"  (ngModelChange)="model.monthvalue = $event.target.value"  ng-reflect-model="$event.target.value" (focus)="getBillingDetails($event.target.value)"
+   (onblur)="getBillingDetails($event.target.value)" readonly/>
+      <span class="input-group-addon" style="display:none1" >
+       <span class="fa fa-calendar" id='caldt'></span>
+   </span>
+    </div>
+</div>
+
+    <!-------------------Account Details---------------------------------------------------------->
+    <div class="col-xs-12 col-lg-7">
+      <div class="panel boxshadow">
+        <div class="panel-heading" [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}">
+          <h4 class="panel-title">Account Details</h4>
+        </div>
+        <div class="table-responsive" style="height: 240px;">
+<table class="table">
+  <tr>
+    <td>Bill Date : <span *ngFor="let b of invoiceData">{{b.month}}-{{b.year}}</span></td>
+    <td>Previous Amount : <span *ngFor="let b of invoiceData">${{b.previousAmount}}</span></td>
+  </tr>
+    <tr>
+    <td>Account Number : 160317624</td>
+    <td>Payment & Adjustment : <span *ngFor="let b of invoiceData">-${{b.adjustment}}</span></td>
+  </tr>
+    <tr>
+    <td>Customer Name : Marcus Doe</td>
+    <td>Past Due : <span *ngFor="let b of invoiceData">${{b.pastDue}}</span></td>
+  </tr>
+    <tr>
+    <td>Billing Number : 804-325-5379</td>
+    <td>Current Charge : <span *ngFor="let b of invoiceData">${{b.currentCharge}}</span></td>
+  </tr>
+    <tr>
+    <td> Due Date : <span *ngFor="let b of invoiceData">{{b.dueDate}}</span></td>
+    <td>Total Amount Due : <span *ngFor="let b of invoiceData">${{b.amount}}</span></td>
+  </tr>
+
+   <tr *ngFor="let b of invoiceData">
+    <td *ngIf="b.paidAmount > 0"> Payment Received : <span *ngFor="let b of invoiceData">${{b.paidAmount}}</span></td>
+    <td *ngIf="b.paidAmount > 0">Paid Date : <span *ngFor="let b of invoiceData">{{b.paidDate}}</span></td>
+  </tr>
+</table>
+          <div class="widget-detail-1" style="text-align: center;" *ngFor="let b of invoiceData">
+            <div *ngIf="b.paidAmount < 1"> 
+            <button class="btn" [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo}" data-toggle="modal" data-target=".bs-example-modal-lg"
+                    routerLink="/payment" routerLinkActive="active1">
+              Pay My Bill
+            </button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!----------------------------------------Bill Alerts---------------------------------------------------------------->
+    <div class="col-xs-12 col-lg-5">
+      <div class="panel boxshadow">
+        <div class="panel-heading" [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}">
+          <h4 class="panel-title">Bill Alerts</h4>
+        </div>
+        <div class="panel-body panelbody" style="height: 240px;">
+          <div class="list-group">
+            <ol class="billalert">
+              <li><p class="list-group-item-text">As a loyal customer you are receiving 30% Discount on bill.</p></li>
+              <li><p class="list-group-item-text">Your usage exceeds 300GB of fair uage policy.</p></li>
+              <li><p class="list-group-item-text">Your latest bill for month of Jan is available.</p></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <!------------------------------------------Usage-------------------------------------------------------------------->
+  <div class="col-xs-12">
+    <div class="panel boxshadow">
+      <div class="panel-heading" [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}">
+        <h3 class="panel-title">Usage Details</h3>
+      </div>
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#chartdatausagediv" data-toggle="tab">Data Usage</a></li>
+
+        <li><a href="#chartdiv" data-toggle="tab">Billing </a></li>
+
+      </ul>
+       <div id="" class="tab-content">
+        <div class="tab-pane fade" id="chartdiv"></div>
+
+        <div id="chartdatausagediv" class="tab-pane active">
+        <ul class="nav nav-tabs submenu" style="text-align: center;border:0px;">
+        <li class="active" style="float:none!important;display:inline-block;">
+          <a href="#chartdatausage" data-toggle="tab" style="border:0px;">Pie Chart</a></li>
+      <li class="" style="float:none!important;display:inline-block;">
+<h4>|</h4>
+</li>
+        <li  style="float:none !important;display:inline-block;">
+              <a href="#datausage_stackedchartdiv" data-toggle="tab" style="border:0px;">Stacked Area Chart</a>
+        </li>
+
+        </ul>
+        <div class="tab-content box">
+        <div class="tab-pane active" id="chartdatausage"></div>
+        <div class="tab-pane fade" id="datausage_stackedchartdiv"></div>
+      </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

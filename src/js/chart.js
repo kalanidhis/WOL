@@ -1,79 +1,54 @@
+
+var jsonData="";
+
+ $.ajax({
+            url: 'http://localhost:8080/invoice/billing',
+            dataType: "json",
+            async: false,
+            complete: function (response) {
+              jsonData=response.responseText;
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+               console.log("errorThrown--"+errorThrown);
+               jsonData="[{}]"
+            }
+        });
+
 var chart = AmCharts.makeChart("chartdiv", {
     "theme": "light",
     "type": "serial",
-    "dataProvider": [{
-        "country": "Jan",
-        "year2005": 420
-    }, {
-        "country": "Feb",
-
-        "year2005": 301
-    }, {
-        "country": "March",
-    
-        "year2005": 290
-    }, {
-        "country": "April",
-  
-        "year2005": 230
-    }, {
-        "country": "May",
-
-        "year2005": 210
-    }, {
-        "country": "June",
-
-        "year2005": 409
-    }, {
-        "country": "July",
- 
-        "year2005": 720
-    }, {
-        "country": "Aug",
-  
-        "year2005": 710
-    }, {
-        "country": "Sep",
-      
-        "year2005": 101
-    },
-     {
-        "country": "Oct",
-       
-        "year2005": 101
-    }],
+    "dataProvider": JSON.parse(jsonData),
     "valueAxes": [{
         "stackType": "3d",
         "unit": "$",
-        "position": "right",
+        "position": "left",
         "title": "Bill Amount",
     }],
     "startDuration": 1,
     "graphs": [{
-        "balloonText": "Bill Amount in [[category]] (This year): <b>[[value]]</b>",
+        "balloonText": "Bill Amount in [[category]]-[[year]]:  <br/><b>$[[value]]</b>",
         "fillAlphas": 0.9,
         "lineAlpha": 0.2,
         "title": "2004",
+        "balloonColor" : "#0D8ECF",
+        "bulletBorderColor" : "#0D8ECF",
+        "fillColors":"#0D8ECF",
         "type": "column",
-        "valueField": "year2004"
-    }, {
-        "balloonText": "Bill Amount in [[category]] : <b>[[value]]</b>",
-        "fillAlphas": 0.9,
-        "lineAlpha": 0.2,
-        "title": "2005",
-        "type": "column",
-        "valueField": "year2005"
+        "valueField": "currentCharge"
     }],
     "plotAreaFillAlphas": 0.1,
-    "depth3D": 60,
+    "depth3D": 20,
     "angle": 30,
-    "categoryField": "country",
+    "categoryField": "month",
     "categoryAxis": {
         "gridPosition": "start"
     },
     "export": {
         "enabled": true
-     }
+     },
+         "responsive": {
+    "enabled": true
+  },
 });
 jQuery('.chart-input').off().on('input change',function() {
     var property    = jQuery(this).data('property');

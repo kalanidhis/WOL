@@ -1,0 +1,142 @@
+
+<div *ngIf="!top" class="container-fluid" style="padding: 0px !important">
+         <div class="progress skill-bar ">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                </div>
+            </div>
+ <div class="pagenation  col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2" style="padding: 0; background-color: #F2F2F2">
+    <ol class="breadcrumb page-breadcrumb" style="margin:0px">
+      <li routerLink="/home"><a><i class="fa fa-home fa-lg" aria-hidden="true"></i> &nbsp; Home</a></li>
+      <li><a>View Ticket</a></li>
+    </ol>
+  </div>
+  <side-bar></side-bar>
+
+  <div   [@myAnimation]="show" class="col-xs-10 col-xs-offset-1 col-sm-7 col-sm-offset-4 col-lg-8 col-lg-offset-3"  style="padding: 40px !important">
+
+  <div class="panel  boxshadow">
+  <div class="panel-heading" [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}"><h4>View Tickets</h4></div>
+  <div class="panel-body table-responsive">
+        <div  style="text-align: right !important;">
+                
+                <select class="col-xs-2,form-control input-sm" [(ngModel)]="rowsOnPage" >
+                    <option [ngValue]="5">5</option>
+                    <option [ngValue]="10">10</option>
+                    <option [ngValue]="15">15</option>
+                </select>
+            </div>
+                 <table class="table table-striped" [mfData]="data | dataFilter : filterQuery" #mf="mfDataTable"
+                   [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+                <thead>
+                <tr>
+                    <th style="width: 20%">
+                        <mfDefaultSorter by="name">Name</mfDefaultSorter>
+                    </th>
+                    <th style="width: 20%">
+                        <mfDefaultSorter by="desc">Description</mfDefaultSorter>
+                    </th>
+                    <th style="width: 20%">
+                        <mfDefaultSorter by="resolved">Status</mfDefaultSorter>
+                    </th>
+                </tr>
+                <tr>
+                    <!-- <th colspan="5">
+                        Filter by name:
+                        <input class="form-control" [(ngModel)]="filterQuery"/>
+                    </th> -->
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of mf.data" >
+                   
+                    <td>{{item.name}}</td>
+                    <td>{{item.desc}}</td>
+                   <td>
+                        <div *ngIf="item.resolved==true">CLOSED</div>
+                            <div *ngIf="item.resolved!=true">OPEN</div>
+                         </td>
+                    
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="5">
+                        <mfBootstrapPaginator [rowsOnPageSet]=""></mfBootstrapPaginator>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+  </div>
+</div>
+</div>
+</div>
+<div *ngIf="top">
+<side-bar-top></side-bar-top>
+         <div class="progress skill-bar ">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                </div>
+            </div>
+ <div class="pagenation  col-lg-12" style="padding: 0; background-color: #F2F2F2">
+    <ol class="breadcrumb page-breadcrumb" style="margin:0px">
+      <li routerLink="/home"><a><i class="fa fa-home fa-lg" aria-hidden="true"></i> &nbsp; Home</a></li>
+      <li><a>View Ticket</a></li>
+    </ol>
+  </div>
+ <div   [@myAnimation]="show" class="col-xs-10 col-xs-offset-1"  style="padding: 40px !important">
+
+  <div class="panel boxshadow" style="border:0px">
+  <div class="panel-heading" [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}"><h4>View Tickets</h4></div>
+  <div class="panel-body table-responsive">
+        <div  style="text-align: right !important;">
+                
+                <select class="col-xs-2,form-control input-sm" [(ngModel)]="rowsOnPage" >
+                    <option [ngValue]="5">5</option>
+                    <option [ngValue]="10">10</option>
+                    <option [ngValue]="15">15</option>
+                </select>
+            </div>
+                 <table class="table table-striped" [mfData]="data | dataFilter : filterQuery" #mf="mfDataTable"
+                   [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+                <thead>
+                <tr>
+                    <th style="width: 20%">
+                        <mfDefaultSorter by="name">Name</mfDefaultSorter>
+                    </th>
+                    <th style="width: 20%">
+                        <mfDefaultSorter by="desc">Description</mfDefaultSorter>
+                    </th>
+                    <th style="width: 20%">
+                        <mfDefaultSorter by="resolved">Status</mfDefaultSorter>
+                    </th>
+                </tr>
+                <tr>
+                    <!-- <th colspan="5">
+                        Filter by name:
+                        <input class="form-control" [(ngModel)]="filterQuery"/>
+                    </th> -->
+                </tr>
+                </thead>
+               <tbody>
+                <tr *ngFor="let item of mf.data" >
+                   
+                    <td>{{item.name}}</td>
+                    <td>{{item.desc}}</td>
+                    <td>
+                        <div *ngIf="item.resolved==true">CLOSED</div>
+                         <div *ngIf="item.resolved!=true">OPEN</div>
+                     </td>
+                    
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="5">
+                        <mfBootstrapPaginator [rowsOnPageSet]=""></mfBootstrapPaginator>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+  </div>
+</div>
+</div>
+</div>
