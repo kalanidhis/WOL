@@ -1,29 +1,150 @@
-<div class="progress skill-bar ">
-    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0"
-         aria-valuemax="100">
-    </div>
-</div>
-<div [@myAnimation]="show" class="pagecontentbar col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2"
-     style="padding: 0; background-color: #F2F2F2">
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
 
-    <div class="pagenation" style="padding: 0; background-color: #F2F2F2">
-        <ol class="breadcrumb page-breadcrumb">
-            <li routerLink="/home"><a><i class="fa fa-home fa-lg" aria-hidden="true"></i> &nbsp; Home</a></li>
-            <li routerLink="/home"><a>Account Home</a></li>
-        </ol>
+    <div class="content-header">
+
+        <ul class="breadcrumb">
+            <li><a><i class="fa fa-home"></i> Home</a></li>
+            <li>Dashboard</li>
+        </ul>
     </div>
 
-    <div class="merger col-lg-10 col-lg-offset-2"
-         style="display: block; margin-left: auto; margin-right:auto;float: none">
+    <div class="row" [hidden]="!editDashboard">
+        <div class="col-lg-10 col-lg-offset-1" style="margin-left: 4%">
+            <div class="panel white">
+                <div class="panel-heading green">
+                    <h4>Customize View</h4>
+                </div>
 
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-5 col-lg-offset-1">
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h4>Choose Widgets</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h4>Main Pane</h4>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" [(ngModel)]="showAccountDetails">Account
+                                            Details</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" [(ngModel)]="showPreviousInvoices">Previous
+                                            Invoices</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" [(ngModel)]="showServices">Services</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" [(ngModel)]="showOffers">Offers</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <h4>Right Pane</h4>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox"
+                                                      [(ngModel)]="showNotifications">Notifications</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" [(ngModel)]="showOpenRequests">Open
+                                            Requests</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" [(ngModel)]="showSupport">Support</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" [(ngModel)]="showBlog">Windstream Blog</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" [(ngModel)]="showQuickLinks">Quick Links</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5 col-lg-offset-1">
+                            <div class="row">
+                                <h4>Predefined Themes</h4>
+                            </div>
+                            <div class="row">
+                                <ul class="list-inline" id="theme">
+                                    <li (click)='setTheme("green")'><a><i class="fa fa-circle fagreen"
+                                                                          style="color: green"></i> &nbsp;
+                                        Windstream</a></li>
+                                    <li (click)='setTheme("indigo")'><a> <i class="fa fa-circle faindigo"
+                                                                            style="color: indigo"></i>
+                                        &nbsp;Flickr</a></li>
+                                    <li (click)='setTheme("blue")'><a> <i class="fa fa-circle fablue"
+                                                                          style="color: blue"></i> &nbsp;Blue</a>
+                                    </li>
+                                    <li (click)='setTheme("navy")'><a> <i class="fa fa-circle fanavy"
+                                                                          style="color: red"></i>
+                                        &nbsp;Red</a></li>
+                                    <li (click)='setTheme("white")'><a> <i class="fa fa-circle fawhite"
+                                                                           style="color: white"></i> &nbsp;Simple</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" [(ngModel)]="isBoxShadow">Stand Out Boxes</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" [(ngModel)]="inEditMode">Blink Animation</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" [(ngModel)]="isShakeMode">Crazy Shake
+                                        Animation</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" [(ngModel)]="isColorPicker">Use custom Color
+                                        Scheme</label>
+                                </div>
+                            </div>
+                            <div class="row" [hidden]="!isColorPicker">
+                                <input [(colorPicker)]="color"
+                                       [style.background]="color"
+                                       [value]="color"
+                                       [cpPosition]="'bottom'"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="text-align: center">
+                        <button type="button" class="btn btn-success" (click)="disableDashboardEdit()">
+                            Save
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main content -->
+    <section [@myAnimation]="show" class="content">
+
+        <!-- Main row -->
         <div class="row">
-            <div class="col-lg-1"></div>
-
-            <div class="col-lg-11">
+            <!-- Left col -->
+            <section class="col-lg-offset-1 col-lg-6 connectedSortable">
+                <!-- Custom tabs (Charts with tabs)-->
                 <!---------------------------------------Account Details---------------------------------------------->
-                <div [hidden]="!showAccountDetails" class="col-lg-7">
-                    <div [ngClass]="{'shake':inEditMode}"  class="panel boxshadow">
-                        <div class="panel-heading"  [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}" >
+                <div [hidden]="!showAccountDetails">
+                    <div [ngClass]="{'dimAnimation':inEditMode, 'shake' : isShakeMode, 'boxshadow':isBoxShadow}"
+                         class="panel">
+                        <div class="panel-heading"
+                             [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo, noColor : isColorPicker}"
+                             [ngStyle]="{'background-color':color}">
                             <h4>Account Details</h4>
                         </div>
                         <div class="panel-body">
@@ -40,7 +161,7 @@
                                     <tr>
                                         <td><b>Auto Pay:</b></td>
                                         <td>
-                                            OFF
+                                            OFF <a href="http://windstream.com/">(Turn ON)</a>
                                         </td>
                                     </tr>
                                 </table>
@@ -50,7 +171,10 @@
                         <span *ngFor="let b of invoiceDueData">
                             <span *ngIf="b.paidAmount < 1">
                                 <a>
-                                    <button id="payBill" type="button" class="btn" [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo}" data-toggle="modal"
+                                    <button id="payBill" type="button" class="btn" [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo,
+                                    noColor : isColorPicker}"
+                                            [ngStyle]="{'background-color':color}"
+                                            data-toggle="modal"
                                             data-target=".bs-example-modal-lg" routerLink="/payment"
                                             routerLinkActive="active1">Pay My Bill >></button>
                                 </a>
@@ -61,40 +185,22 @@
                             </span>
                         </span>
                                 <span style=" float: right;">  <a href="/billing">
-                            <button id="viewBill" class="btn" [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo}">View Bill >></button></a></span>
+                            <button id="viewBill" class="btn" [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo,
+                            noColor : isColorPicker}"
+                                    [ngStyle]="{'background-color':color}">
+                                View Bill >>
+                            </button></a></span>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!---------------------------------------------Notifications---------------------------------------------->
-                <div [hidden]="!showNotifications" class="col-lg-3">
-                    <div [ngClass]="{'shake':inEditMode}"  class="panel boxshadow">
-                        <div class="panel-heading" [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}">
-                            <h4>Notifications
-                                <span class="pull-right" style="display: inline-block;">
-              <i class="fa fa-bell faa-ring animated"></i>
-            </span>
-                            </h4>
-                        </div>
-
-                        <div class="panel-body" style="height: 195px;">
-                            <ul class="list-unstyled">
-                                <li>Your Bill is Over Due. <a href="http://windstream.com">Pay Now</a></li>
-                                <br>
-                                <li>It is more than an year since you last changed your password. <a
-                                        href="http://windstream.com">Click here</a> to change now.
-                                </li>
-                                <br>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
                 <!---------------------------------------------Invoices---------------------------------------------->
-                <div [hidden]="!showPreviousInvoices" class="col-lg-7">
-                    <div [ngClass]="{'shake':inEditMode}"  class="panel boxshadow">
-                        <div class="panel-heading" [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}">
+                <div [hidden]="!showPreviousInvoices">
+                    <div [ngClass]="{'dimAnimation':inEditMode, 'shake' : isShakeMode, 'boxshadow':isBoxShadow}"
+                         class="panel">
+                        <div class="panel-heading"
+                             [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo, noColor : isColorPicker}"
+                             [ngStyle]="{'background-color':color}">
                             <h4>Previous Invoices</h4>
                         </div>
                         <div class="panel-body">
@@ -109,12 +215,44 @@
                                         <th><b>Download Bill</b></th>
                                     </tr>
                                     </thead>
-                                    <tbody>
-                                    <tr *ngFor="let a of invoiceData">
-
-                                        <td>{{a.month}} {{a.year}}</td>
+                                    <tbody *ngFor="let a of invoiceData">
+                                    <tr>
+                                        <td><a class="accordion-toggle collapsed" data-toggle="collapse"
+                                               data-parent="#accordion" href="#collapse{{a.id}}"
+                                               ng-repeat="x in invoiceData"
+                                               style="display: inline-block;font-size: 11.6px;"></a>&nbsp;{{a.month}}
+                                            {{a.year}}{{i}}
+                                        </td>
                                         <td>${{a.amount}}</td>
                                         <td><a href="http://www.google.com">View Bill</a></td>
+
+                                    </tr>
+                                    <tr id="collapse{{a.id}}" class="accordion-body collapse">
+                                        <td>
+                                            <ul class="list-group">
+                                                <li class="list-group-item header">Services Subscribed <span
+                                                        class="badge"></span></li>
+                                                <li class="list-group-item">Internet</li>
+                                                <li class="list-group-item">Phone</li>
+                                                <li class="list-group-item">TV</li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <ul class="list-group">
+                                                <li class="list-group-item header">Charged</li>
+                                                <li class="list-group-item">${{a.internetBill}}</li>
+                                                <li class="list-group-item">${{a.phoneBill}}</li>
+                                                <li class="list-group-item">${{a.tvBill}}</li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <ul class="list-group">
+                                                <li class="list-group-item header">Plan</li>
+                                                <li class="list-group-item">Standard Internet 6 Mbps</li>
+                                                <li class="list-group-item">Unlimited US Wide Calling</li>
+                                                <li class="list-group-item">Dish America's Top 120+</li>
+                                            </ul>
+                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -122,60 +260,104 @@
 
                             <div class="widget-detail-1" style="text-align: center;">
                                 <a routerLink="/viewinvoice">
-                                    <button id="viewInvoices" class="btn" [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo}">View All Invoices</button>
+                                    <button id="viewInvoices" class="btn" [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo,
+                                    noColor : isColorPicker}"
+                                            [ngStyle]="{'background-color':color}">View All Invoices
+                                    </button>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!---------------------------------------------Tickets---------------------------------------------->
-                <div [hidden]="!showOpenRequests" class="col-lg-3">
-                    <div [ngClass]="{'shake':inEditMode}"  class="panel boxshadow">
-                        <div class="panel-heading" [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}">
-                            <h4>Open Requests
-                                <span class="pull-right" style="display: inline-block;">
-                                    <i class="fa fa-ticket animated"></i>
-                                </span>
-                            </h4>
-                        </div>
 
+                <!---------------------------------------------  Services Start ---------------------------------------------->
+
+                <div [hidden]="!showServices">
+                    <div [ngClass]="{'dimAnimation':inEditMode, 'shake' : isShakeMode, 'boxshadow':isBoxShadow}"
+                         class="panel">
+                        <div class="panel-heading"
+                             [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo, noColor : isColorPicker}"
+                             [ngStyle]="{'background-color':color}">
+                            <h4>Services</h4>
+                        </div>
                         <div class="panel-body">
-                            <div class="custinfo table-responsive" onload="getAllTickets();">
-                                <table class="table table-striped" [mfData]="data | dataFilter : filterQuery"
-                                       #mf="mfDataTable"
-                                       [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
-                                    <thead>
-                                    <tr>
-                                        <th><b>Category</b></th>
-                                        <th><b>Status</b></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr *ngFor="let item of ticketData">
 
-                                        <td>{{item.name}}</td>
-                                        <td>
-                                            <div *ngIf="item.resolved==true">CLOSED</div>
-                                            <div *ngIf="item.resolved!=true">OPEN</div>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="widget-detail-1" style="text-align: center;">
-                                <a href="/viewticket">
-                                    <button id="viewTickets" class="btn" [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo}">View All Tickets</button>
-                                </a>
+                            <div class="panel-group">
+
+                                <div class="panel panel-default noBorder">
+                                    <div class="panel-body">
+                                        <div class="col-lg-3">
+                                            <img class="img-responsive" src="../../../images/internet.png"
+                                                 alt="Chania" style="max-height: 80px">
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <h4>Standard Internet 6 Mbps</h4>
+                                            <ul class="list-unstyled list-inline">
+                                                <li>
+                                                    <h4><a href="#">Upgrade Now</a></h4>
+                                                </li>
+                                                <li>
+                                                    <h4><a href="#">Change Plan</a></h4>
+                                                </li>
+                                                <li>
+                                                    <h4><a href="#">Troubleshoot</a></h4>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default noBorder">
+                                    <div class="panel-body">
+                                        <div class="col-lg-3">
+                                            <img class="img-responsive" src="../../../images/tv.png"
+                                                 alt="Chania" style="max-height: 80px">
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <h4>Dish America's Top 120+</h4>
+                                            <ul class="list-unstyled list-inline">
+                                                <li>
+                                                    <h4><a href="#">Upgrade Now</a></h4>
+                                                </li>
+                                                <li>
+                                                    <h4><a href="#">Change Plan</a></h4>
+                                                </li>
+                                                <li>
+                                                    <h4><a href="#">Troubleshoot</a></h4>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default noBorder">
+                                    <div class="panel-body">
+                                        <div class="col-lg-3">
+                                            <img class="img-responsive" src="../../../images/phone.png"
+                                                 alt="Chania" style="max-height: 59px">
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <h4>Bundle a phone and save over 27$ a month</h4>
+                                            <ul class="list-unstyled list-inline">
+                                                <li>
+                                                    <h4><a href="#">Add a Phone</a></h4>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!---------------------------------------------  Services End ---------------------------------------------->
 
                 <!---------------------------------------------carousel---------------------------------------------->
-                <div [hidden]="!showOffers" class="col-lg-7">
-                    <div [ngClass]="{'shake':inEditMode}"  class="panel panel-default">
-                        <div class="panel-body boxshadow">
+                <div>
+                    <div [ngClass]="{'dimAnimation':inEditMode, 'shake' : isShakeMode, 'boxshadow':isBoxShadow}"
+                         class="panel panel-default">
+                        <div class="panel-body">
                             <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="6000"
                                  id="bs-carousel">
 
@@ -264,10 +446,158 @@
                     </div>
                 </div>
 
+
+            </section>
+            <!-- /.Left col -->
+            <!-- right col (We are only adding the ID to make the widgets sortable)-->
+            <section class="col-lg-4 connectedSortable">
+                <!---------------------------------------------Notifications---------------------------------------------->
+                <div [hidden]="!showNotifications">
+                    <div [ngClass]="{'dimAnimation':inEditMode, 'shake' : isShakeMode, 'boxshadow':isBoxShadow}"
+                         class="panel">
+                        <div class="panel-heading"
+                             [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo, noColor : isColorPicker}"
+                             [ngStyle]="{'background-color':color}">
+                            <h4>Notifications
+                                <span class="pull-right" style="display: inline-block;">
+              <i class="fa fa-bell faa-ring animated"></i>
+            </span>
+                            </h4>
+                        </div>
+
+                        <div class="panel-body" style="height: 195px;">
+                            <ul class="list-unstyled">
+                                <li>Your Bill for this month is Over Due. <a href="http://windstream.com">Pay Now.</a>
+                                </li>
+                                <br>
+                                <li>Your last payment of 45$ has been processed.</li>
+                                <br>
+                                <li>It is more than an year since you last changed your password. <a
+                                        href="http://windstream.com">Click here</a> to change now.
+                                </li>
+                                <br>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!------------------------------------------------------------Quick Links--------------------------------- -->
+                <div [hidden]="!showQuickLinks">
+                    <div [ngClass]="{'dimAnimation':inEditMode, 'shake' : isShakeMode, 'boxshadow':isBoxShadow}"
+                         class="panel">
+                        <div class="panel-heading"
+                             [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo, noColor : isColorPicker}"
+                             [ngStyle]="{'background-color':color}">
+                            <h4>Quick Links
+                                <span class="pull-right" style="display: inline-block;">
+              <i class="fa fa-flash faa-ring animated"></i>
+            </span>
+                            </h4>
+                        </div>
+
+                        <div class="panel-body quicklink" style="height: 195px;color: firebrick;">
+
+                            <span routerLink="/payment"><a><i
+                                    class="fa fa-hand-o-right"></i>&nbsp;Make Payment</a></span>
+
+                            <span routerLink="/billing" (click)="billing()"><a><i class="fa fa-hand-o-right"></i>&nbsp;Billing</a></span>
+
+                            <span routerLink="/viewinvoice"><a><i class="fa fa-hand-o-right"></i>&nbsp;View Invoice Details</a></span>
+
+
+                            <span routerLink="/createtroubleticket"><a><i class="fa fa-hand-o-right"></i>&nbsp;Create Trouble Ticket</a></span>
+
+                            <span routerLink="/viewticket"><a><i
+                                    class="fa fa-hand-o-right"></i>&nbsp;View Tickets</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!---------------------------------------------BLOG---------------------------------------------->
+                <div [hidden]="!showBlog">
+                    <div [ngClass]="{'dimAnimation':inEditMode, 'shake' : isShakeMode, 'boxshadow':isBoxShadow}"
+                         class="panel">
+                        <div class="panel-heading" [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo
+                            , noColor : isColorPicker}" [ngStyle]="{'background-color':color}">
+                            <h4>Blog
+                                <span class="pull-right" style="display: inline-block;">
+                                         <i class="fa fa-rss animated"></i>
+                                    </span>
+                            </h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row col-lg-11" style="margin: auto">
+                                <input type="text" class="form-control"
+                                       placeholder="Subscribe our blog. What's your email ?"/>
+                            </div>
+                            <div class="row col-lg-11" style="margin: auto;  padding-top:10px; text-align: center">
+                                <button type="button" class="btn" [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo
+                                    , noColor : isColorPicker}"
+                                        [ngStyle]="{'background-color':color}">
+                                    Subscribe
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!---------------------------------------------Tickets---------------------------------------------->
+                <div [hidden]="!showOpenRequests">
+                    <div [ngClass]="{'dimAnimation':inEditMode, 'shake' : isShakeMode, 'boxshadow':isBoxShadow}"
+                         class="panel">
+                        <div class="panel-heading" [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo,
+                        noColor : isColorPicker}" [ngStyle]="{'background-color':color}">
+                            <h4>Open Requests
+                                <span class="pull-right" style="display: inline-block;">
+                                    <i class="fa fa-ticket animated"></i>
+                                </span>
+                            </h4>
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="custinfo table-responsive" onload="getAllTickets();">
+                                <table class="table table-striped" [mfData]="data | dataFilter : filterQuery"
+                                       #mf="mfDataTable"
+                                       [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+                                    <thead>
+                                    <tr>
+                                        <th><b>Category</b></th>
+                                        <th><b>Status</b></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr *ngFor="let item of ticketData">
+
+                                        <td>
+                                            <a href="http://windstream.com"> {{item.name}}</a>
+                                        </td>
+                                        <td>
+                                            <div *ngIf="item.resolved==true">Closed</div>
+                                            <div *ngIf="item.resolved!=true">Open</div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="widget-detail-1" style="text-align: center;">
+                                <a href="/viewticket">
+                                    <button id="viewTickets" class="btn" [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo,
+                                    noColor : isColorPicker}"
+                                            [ngStyle]="{'background-color':color}">View All Tickets
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!---------------------------------------------SUPPORT---------------------------------------------->
-                <div [hidden]="!showSupport" class="col-lg-3">
-                    <div [ngClass]="{'shake':inEditMode}"  class="panel boxshadow" style=" height: 310px;">
-                        <div class="panel-heading" [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}">
+                <div [hidden]="!showSupport">
+                    <div [ngClass]="{'dimAnimation':inEditMode, 'shake' : isShakeMode, 'boxshadow':isBoxShadow}"
+                         class="panel"
+                         style=" height: 310px;">
+                        <div class="panel-heading" [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo,
+                        noColor : isColorPicker}" [ngStyle]="{'background-color':color}">
                             <h4>Support
                                 <span class="pull-right" style="display: inline-block;">
                                     <i class="fa fa-question-circle animated"></i>
@@ -311,92 +641,47 @@
                     </div>
                 </div>
 
-                <!---------------------------------------------BLOG---------------------------------------------->
-                <div [hidden]="!showBlog" class="col-lg-3">
-                        <div [ngClass]="{'shake':inEditMode}" class="panel boxshadow">
-                            <div class="panel-heading"  [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}">
-                                <h4>Blog
-                                    <span class="pull-right" style="display: inline-block;">
-                                         <i class="fa fa-rss animated" style="color: #5cb85c"></i>
-                                    </span>
-                                </h4>
-                            </div>
-                            <div class="panel-body">
-                                <p style="padding-left: 13px;">
-                                    Subscribe to our <a href="http://blog.windstream.com/">blog</a>
-                                </p>
-                                <div class="row col-lg-11" style="margin: auto">
-                                    <input type="text" class="form-control" placeholder="What's your email ?"/>
-                                </div>
-                                <div class="row col-lg-11" style="margin: auto;  padding-top:10px; text-align: center">
-                                    <button type="button" class="btn" [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo}">
-                                        Subscribe
-                                    </button>
-                                </div>
-                            </div>
+            </section>
+            <!-- right col -->
+        </div>
+        <!-- /.row (main row) -->
+
+    </section>
+    <!-- /.content -->
+    <!-- Color Picker -->
+    <div class="modal fade" id="myColorPickerModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Content-->
+            <div class="modal-content">
+
+                <div class="modal-header ">
+                    <h4 class="modal-title">Edit Screen</h4>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-lg-offset-4 col-lg-8">
+                            <label>
+                                Are you sure ? </label>
                         </div>
+                    </div>
+                    <div class="row" style="text-align: center">
+
+                        <button type="button" class="btn btn-success" data-dismiss="modal"
+                                (click)="enableDashboardEdit()">
+                            Yes
+                        </button>
+
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">
+                            No
+                        </button>
+
+                    </div>
                 </div>
 
             </div>
         </div>
-
-    </div>
-</div>
-
-<!-- Selection Modal -->
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Content-->
-        <div class="modal-content">
-
-            <div class="modal-header ">
-                <h4 class="modal-title">Customize View</h4>
-            </div>
-
-            <div class="modal-body">
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h3>Choose Widgets</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="checkbox">
-                            <label><input type="checkbox" [(ngModel)]="showAccountDetails">Account
-                                Details</label>
-                        </div>
-                        <div class="checkbox">
-                            <label><input type="checkbox" [(ngModel)]="showPreviousInvoices">Previous Invoices</label>
-                        </div>
-                        <div class="checkbox">
-                            <label><input type="checkbox" [(ngModel)]="showNotifications">Notifications</label>
-                        </div>
-                        <div class="checkbox">
-                            <label><input type="checkbox" [(ngModel)]="showOpenRequests">Open Requests</label>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <div class="checkbox">
-                            <label><input type="checkbox" [(ngModel)]="showSupport">Support</label>
-                        </div>
-                        <div class="checkbox">
-                            <label><input type="checkbox" [(ngModel)]="showOffers">Offers</label>
-                        </div>
-                        <div class="checkbox">
-                            <label><input type="checkbox" [(ngModel)]="showBlog">Windstream Blog</label>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="modal-footer" style="text-align: center">
-                <button type="button" class="btn btn-success" data-dismiss="modal" (click)="toggleEditMode()">Close</button>
-            </div>
-        </div>
-
     </div>
 </div>

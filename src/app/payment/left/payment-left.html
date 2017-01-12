@@ -1,15 +1,23 @@
-         <div class="progress skill-bar ">
-                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                </div>
-            </div>
-<div class="pagenation  col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2" style="padding: 0; background-color: #F2F2F2">
-  <ol class="breadcrumb page-breadcrumb" style="margin:0px">
-    <li routerLink="/home"><a><i class="fa fa-home fa-lg" aria-hidden="true"></i> &nbsp; Home</a></li>
+ 
+            <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+
+    <div class="content-header">
+  
+      <ul class="breadcrumb">
+   <li routerLink="/home"><a><i class="fa fa-home fa-lg" aria-hidden="true"></i> &nbsp; Home</a></li>
     <li><a>Payment</a></li>
-  </ol>
-</div>
-<div   [@myAnimation]="show" class="pagecontentbar col-sm-9 col-sm-offset-3 col-lg-6 col-lg-offset-4" style="padding-top: 20px;">
-      <div class="panel boxshadow" style="margin:0px">
+      </ul>
+    </div>
+
+    <!-- Main content -->
+    <section [@myAnimation]="show"   class="content">
+      <!-- Main row -->
+      <div class="row">
+        <!-- Left col -->
+        <section class="col-lg-8  col-lg-offset-2 connectedSortable">
+          <!-- Custom tabs (Charts with tabs)-->
+        <div class="panel boxshadow" style="margin:0px">
         <div class="panel-heading " [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}"><b>Payment Method</b></div>
         <div class="">
         <div class="">
@@ -59,7 +67,7 @@
         <div class='form-row'>
         <div class='col-sm-8 col-sm-offset-2 col-xs-12 form-group required'>
         <label class='control-label'>Name on Card</label>
-        <input class='form-control' size='4' type='text' value="Marcus Doe">
+        <input class='form-control' size='4' type='text' value="Brad Carpenter">
         </div>
         </div>
         <div class='form-row'>
@@ -164,4 +172,9 @@
 
         </div>
       </div>
-</div>
+
+
+        </section>
+        <!-- /.Left col -->
+
+  </div>

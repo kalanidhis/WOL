@@ -28,6 +28,7 @@ export class SideBarLeftComponent {
 
 
     clicked() {
+
         this._cookieService.put('menu', 'top');
         location.reload();
     }
@@ -59,6 +60,11 @@ settheme(theme){
      public theme;
 
     gettheme(){
+
+        $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("active");
+});
 
    this.theme=this._cookieService.get('theme');
 if(this.theme == undefined){

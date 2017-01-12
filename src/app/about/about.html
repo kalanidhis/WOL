@@ -1,6 +1,10 @@
 <div  [@myAnimation]="show" *ngIf="!top" class="container-fluid" style="padding: 0px !important">
+<div class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
   <side-bar></side-bar>
   <about-left></about-left>
+  </div>
+  </div>
 </div>
 <div  [@myAnimation]="show" *ngIf="top">
 <side-bar-top></side-bar-top>

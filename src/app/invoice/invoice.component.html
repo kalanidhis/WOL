@@ -1,17 +1,31 @@
     
 <div *ngIf="!top" class="container-fluid" style="padding: 0px !important;">
-  <side-bar></side-bar>
+<div >
+<div class="wrapper">
        <div class="progress skill-bar ">
                 <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                 </div>
             </div>
-   <div class="pagenation col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2" style="padding: 0; background-color: #F2F2F2">
-    <ol class="breadcrumb page-breadcrumb" style="margin:0px">
-      <li routerLink="/home"><a><i class="fa fa-home fa-lg" aria-hidden="true"></i> &nbsp; Home</a></li>
+  <side-bar></side-bar>
+
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+
+  <div class="content-header">
+
+    <ul class="breadcrumb">
+         <li routerLink="/home"><a><i class="fa fa-home fa-lg" aria-hidden="true"></i> &nbsp; Home</a></li>
       <li><a >Invoice Details</a></li>
-    </ol>
+    </ul>
   </div>
-  <div   [@myAnimation]="show"class="col-xs-10 col-xs-offset-1 col-sm-7 col-sm-offset-4 col-lg-8 col-lg-offset-3"  style="padding: 20px !important;">
+  <!-- Main content -->
+  <section [@myAnimation]="show"   class="content">
+
+    <!-- Main row -->
+    <div class="row">
+      <!-- Left col -->
+      <section class="col-lg-8 col-lg-offset-2 connectedSortable">
+      <!-- Custom tabs (Charts with tabs)-->
 
   <div class="panel  boxshadow">
   <div class="panel-heading" [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}"><h4>View Invoice</h4></div>
@@ -29,7 +43,7 @@
                 <thead>
                 <tr>
                     <th style="width: 20%">
-                        <mfDefaultSorter [by]="getMonthVal">Invoice Month</mfDefaultSorter>
+                        <mfDefaultSorter by="id">Invoice Month</mfDefaultSorter>
                     </th>
                     <th style="width: 20%">
                         <mfDefaultSorter by="year">Amount</mfDefaultSorter>
@@ -62,12 +76,30 @@
                 </tfoot>
             </table>
             <div><span style="display: flex;justify-content: center">
-          <button type="button" class="btn" [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo}" data-toggle="modal" data-target=".bs-example-modal-lg" routerLink="/billing" routerLinkActive="active1">View Usage Details</button>
-          </span></div>
+            <a href="/billing">
+            <button type="button" class="btn" [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo}" data-toggle="modal" data-target=".bs-example-modal-lg" routerLink="/billing" routerLinkActive="active1">View Usage Details</button></a></span></div>
   </div>
 </div>
+
+
+      </section>
+      <!-- /.Left col -->
+
+      <!-- right col (We are only adding the ID to make the widgets sortable)-
+      <section class="col-lg-5 connectedSortable">
+
+
+      </section>
+      <!-- /.content -->
+    </div>
+  </section>
 </div>
 </div>
+</div>
+</div>
+
+
+
 <div *ngIf="top">
 <side-bar-top></side-bar-top>
      <div class="progress skill-bar ">
@@ -98,7 +130,7 @@
                 <thead>
                 <tr>
                     <th style="width: 20%">
-                        <mfDefaultSorter [by]="getMonthVal">Invoice Month</mfDefaultSorter>
+                        <mfDefaultSorter by="id">Invoice Month</mfDefaultSorter>
                     </th>
                      <th style="width: 20%">
                         <mfDefaultSorter by="year">Amount</mfDefaultSorter>
@@ -129,9 +161,9 @@
                 </tr>
                 </tfoot>
             </table>
-            <div> <span style="display: flex;justify-content: center">
-          <button type="button" class="btn"  [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo}" data-toggle="modal" data-target=".bs-example-modal-lg" routerLink="/billing" routerLinkActive="active1">View Usage Details</button>
-          </span></div>
+            <div><span style="display: flex;justify-content: center">
+            <a href="/billing">
+            <button type="button" class="btn" [ngClass]="{ btnblue:isBlue, btnnavy: isNavy, btnwhite:isWhite, btngreen: isGreen, btnindigo: isIndigo}" data-toggle="modal" data-target=".bs-example-modal-lg" routerLink="/billing" routerLinkActive="active1">View Usage Details</button></a></span></div>
   </div>
 </div>
 </div>

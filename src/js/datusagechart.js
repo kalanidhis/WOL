@@ -3,7 +3,6 @@ var chart = AmCharts.makeChart( "chartdatausage", {
   "theme": "light",
   "titles": [ {
     "text": "",
-    "size": 16
   } ],
   "dataProvider": [ {
     "Type": "International calls",
@@ -17,12 +16,9 @@ var chart = AmCharts.makeChart( "chartdatausage", {
   }],
   "valueField": "calls",
   "titleField": "Type",
-  "startEffect": "elastic",
-  "startDuration": 2,
-  "labelRadius": 5,
-  "radius": "42%",
-  "innerRadius": "60%",
-  "depth3D": 20,
+  "depth3D": 15,
+    "outlineAlpha": 0.4,
+    "radius": "30%",
   "balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
   "angle": 30,
   "export": {
@@ -39,13 +35,13 @@ var chart = AmCharts.makeChart( "chartdatausage2", {
   "theme": "light",
   "dataProvider": [ {
     "title": "International calls",
-    "value": 4852
+    "value": 7252
   }, {
     "title": "Operator calls",
-    "value": 9899
+    "value": 3882
   } ,{
     "title": "Domestic calls",
-    "value": 9899
+    "value": 1809
   }],
   "titleField": "title",
   "valueField": "value",
@@ -270,7 +266,7 @@ var chart = AmCharts.makeChart("datausage_stackedchartdiv", {
         "startOnAxis": true,
         "axisColor": "#DADADA",
         "gridAlpha": 0.07,
-        "title": "December 2016",
+        "title": "Jan 2017",
         "guides": [{
             category: "2001",
             toCategory: "2003",

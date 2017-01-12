@@ -18,6 +18,15 @@ issubmenu:false;
 ngOnInit() {
 this.gotoHome();
 this.gettheme();
+
+
+$(document).ready(function(){
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
 }
   constructor(private router: Router,private _cookieService:CookieService) {
 
@@ -25,6 +34,7 @@ this.gettheme();
   
 
   clicked() {
+  
 this._cookieService.put('menu','left');
 location.reload();
   }

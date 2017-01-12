@@ -1,4 +1,7 @@
-
+.progress {
+  height: 5px;
+  margin: 0px;
+}
 .pagecontentbar{
 
   padding-top: 10px;

@@ -1,6 +1,8 @@
 import {Component, NgModule, trigger, transition, style, animate, state,OnInit} from "@angular/core";
 import {Http} from "@angular/http";
 import {environment} from "../../../environments/environment";
+import {Routes, RouterModule} from '@angular/router';
+import {Router} from '@angular/router';
 declare var $: any;
 import {CookieService} from 'angular2-cookie/core';
 @Component({
@@ -39,7 +41,7 @@ show:boolean = true;
     public sortBy = "name";
     public sortOrder = "desc";
 
-     constructor(private http: Http,private _cookieService:CookieService) {
+     constructor(private router: Router,private http: Http,private _cookieService:CookieService) {
     }
 
 
@@ -54,6 +56,11 @@ setTimeout(() => {
    this.progressbar();
     }, 1000);
 }
+
+    billing() {
+        window.location.href = '/billing';
+
+    }
 
   getAllTickets() {
     this.http.get(environment.getLast2Invoices)

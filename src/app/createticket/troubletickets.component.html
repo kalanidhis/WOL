@@ -1,26 +1,39 @@
 
 <div *ngIf="!top" class="container-fluid" style="padding: 0px !important">
-  <side-bar></side-bar>
-           <div class="progress skill-bar ">
+<div>
+<div class="wrapper">
+         <div class="progress skill-bar ">
                 <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                 </div>
             </div>
+  <side-bar></side-bar>
 
-             <div  *ngIf="errorshow" class="alert alert-danger" role="alert" style="padding-left: 250px;">
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+
+    <div class="content-header">
+ 
+      <ul class="breadcrumb">
+      <li routerLink="/home"><a ><i class="fa fa-home fa-lg" aria-hidden="true"></i> &nbsp; Home</a></li>
+      <li><a >Create Ticket</a></li>
+      </ul>
+    </div>
+  
+                 <div  *ngIf="errorshow" class="alert alert-danger" role="alert" style="padding-left: 250px;">
  <i class="fa fa-warning faa-flash animated"></i> Error while creating ticket. Please contact support team
 </div>
    <div  *ngIf="successshow" class="alert alert-success" role="alert" style="padding-left: 250px;">
  <i class="fa fa-smile-o faa-flash animated"></i> Ticket created successfully. <span routerLink="/viewticket"><a >View Ticket</a></span>
 </div>
+    <!-- Main content -->
+    <section [@myAnimation]="show"   class="content">
 
-   <div class="pagenation  col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2" style="padding: 0; background-color: #F2F2F2">
-    <ol class="breadcrumb page-breadcrumb" style="margin:0px">
-      <li routerLink="/home"><a ><i class="fa fa-home fa-lg" aria-hidden="true"></i> &nbsp; Home</a></li>
-      <li><a >Create Ticket</a></li>
-    </ol>
-  </div>
- <div   [@myAnimation]="show" class="col-xs-8 col-xs-offset-2  col-sm-7 col-sm-offset-4 col-lg-6 col-lg-offset-4" style="padding-top: 20px">
-   <div class="panel  boxshadow">
+      <!-- Main row -->
+      <div class="row">
+        <!-- Left col -->
+        <section class="col-lg-6 col-lg-offset-3 connectedSortable">
+          <!-- Custom tabs (Charts with tabs)-->
+         <div class="panel  boxshadow">
   <div class="panel-heading" [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo}"><h4>Create Trouble Ticket</h4></div>
   <div class="panel-body">
 <form [formGroup]="userForm" (submit)="submitForm(userForm)" class="form-horizontal">
@@ -85,9 +98,30 @@
     </form>
   </div>
 </div>
- </div> 
+
+
+        </section>
+        <!-- /.Left col -->
+    
+        <!-- right col (We are only adding the ID to make the widgets sortable)-->
+        <section class="col-lg-5 connectedSortable">
+ 
+
+    </section>
+    <!-- /.content -->
+  </div>
+</section>
+</div>
+
+
 
 </div>
+</div>
+</div>
+
+
+
+
 <div *ngIf="top">
 <side-bar-top></side-bar-top>
          <div class="progress skill-bar ">

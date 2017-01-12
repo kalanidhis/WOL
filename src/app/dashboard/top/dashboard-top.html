@@ -96,14 +96,33 @@
               <th><b>Download Bill</b></th>
             </tr>
           </thead>
-          <tbody>
-            <tr *ngFor="let a of invoiceData" >
-
-              <td>{{a.month}} {{a.year}}</td>
-              <td>${{a.amount}}</td>
-              <td><a href="www.google.com">View Bill</a></td>
-            </tr>
-          </tbody>
+           <tbody *ngFor="let a of invoiceData">
+            <tr >
+                <td ><a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{a.id}}" ng-repeat="x in invoiceData"  style="display: inline-block;font-size: 11.6px;"></a>&nbsp;{{a.month}} {{a.year}}{{i}}</td>
+                <td>${{a.amount}}</td>
+                <td><a href="http://www.google.com">View Bill</a></td>
+            </tr>  
+            <tr id="collapse{{a.id}}" class="accordion-body collapse">
+             <td>    <ul class="list-group">
+                 <li class="list-group-item header">Services Subscribed <span class="badge"></span></li>
+                  <li class="list-group-item">Internet</li>
+                  <li class="list-group-item">Phone</li> 
+                  <li class="list-group-item">TV</li> 
+                </ul></td>
+             <td>    <ul class="list-group">
+                 <li class="list-group-item header">Charged</li>
+                  <li class="list-group-item">${{a.internetBill}}</li>
+                  <li class="list-group-item">${{a.phoneBill}}</li> 
+                  <li class="list-group-item">${{a.tvBill}}</li> 
+                </ul></td>
+             <td>    <ul class="list-group">
+                 <li class="list-group-item header">Plan</li>
+                  <li class="list-group-item">Standard Internet 6 Mbps</li>
+                  <li class="list-group-item">Unlimited US Wide Calling</li> 
+                  <li class="list-group-item">Dish America's Top 120+</li> 
+                </ul></td>
+             </tr>
+            </tbody>
           </table>
 
 
@@ -116,6 +135,7 @@
       </div>
     </div>
 </div>
+
 
 
 <!---------------------------------------------Tickets---------------------------------------------->
@@ -161,7 +181,114 @@
         </div>
       </div>
     </div>
+ <!---------------------------------------------  Services Start ---------------------------------------------->
 
+                <div class="col-lg-6 col-lg-offset-2">
+                    <div [ngClass]="{'dimAnimation':inEditMode, 'shake' : isShakeMode}" class="panel boxshadow">
+                        <div class="panel-heading"
+                             [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo, noColor : isColorPicker}"
+                             [ngStyle]="{'background-color':color}">
+                            <h4>Services</h4>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="panel-group">
+
+                                <div class="panel panel-default noBorder">
+                                    <div class="panel-body">
+                                        <div class="col-lg-3">
+                                            <img class="img-responsive" src="../../../images/internet.png"
+                                                 alt="Chania" style="max-height: 80px">
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <h4>High Speed Internet - 50 Mbps</h4>
+                                            <ul class="list-unstyled list-inline">
+                                                <li>
+                                                    <h4><a href="#">Upgrade Now</a></h4>
+                                                </li>
+                                                <li>
+                                                    <h4><a href="#">Change Plan</a></h4>
+                                                </li>
+                                                <li>
+                                                    <h4><a href="#">Troubleshoot</a></h4>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default noBorder">
+                                    <div class="panel-body">
+                                        <div class="col-lg-3">
+                                            <img class="img-responsive" src="../../../images/tv.png"
+                                                 alt="Chania" style="max-height: 80px">
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <h4>Dish Americas 120 + </h4>
+                                            <ul class="list-unstyled list-inline">
+                                                <li>
+                                                    <h4><a href="#">Upgrade Now</a></h4>
+                                                </li>
+                                                <li>
+                                                    <h4><a href="#">Change Plan</a></h4>
+                                                </li>
+                                                <li>
+                                                    <h4><a href="#">Troubleshoot</a></h4>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default noBorder">
+                                    <div class="panel-body">
+                                        <div class="col-lg-3">
+                                            <img class="img-responsive" src="../../../images/phone.png"
+                                                 alt="Chania" style="max-height: 59px">
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <h4>Bundle a phone and save over 27$ a month</h4>
+                                            <ul class="list-unstyled list-inline">
+                                                <li>
+                                                    <h4><a href="#">Add a Phone</a></h4>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---------------------------------------------  quick links ---------------------------------------------->
+                 <div class="col-lg-2">
+                    <div [ngClass]="{'dimAnimation':inEditMode, 'shake' : isShakeMode}" class="panel boxshadow">
+                        <div class="panel-heading"
+                             [ngClass]="{ blue:isBlue, navy: isNavy, white:isWhite, green: isGreen, indigo: isIndigo, noColor : isColorPicker}"
+                             [ngStyle]="{'background-color':color}">
+                            <h4>Quick Links
+                                <span class="pull-right" style="display: inline-block;">
+              <i class="fa fa-flash faa-ring animated"></i>
+            </span>
+                            </h4>
+                        </div>
+
+                        <div class="panel-body quicklink" style="height: 390px;color: firebrick;">
+        
+                                <span routerLink="/payment"><a><i class="fa fa-hand-o-right"></i>&nbsp;Make Payment</a></span>
+                                
+                                <span  routerLink="/billing" (click)="billing()"><a><i class="fa fa-hand-o-right" ></i>&nbsp;Billing</a></span>
+
+                                <span routerLink="/viewinvoice"><a><i class="fa fa-hand-o-right" ></i>&nbsp;View Invoice Details</a></span>
+                                
+                                
+                                <span routerLink="/createtroubleticket"><a><i class="fa fa-hand-o-right"></i>&nbsp;Create Trouble Ticket</a></span>
+                                                       
+                                <span routerLink="/viewticket"><a><i class="fa fa-hand-o-right"></i>&nbsp;View Tickets</a></span>
+               
+                        </div>
+                    </div>
+                </div>
 <!---------------------------------------------carousel---------------------------------------------->
 <div class="col-lg-6 col-lg-offset-2">
   <div class="panel panel-default boxshadow">
